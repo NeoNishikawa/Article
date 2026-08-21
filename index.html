@@ -3,120 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artikel Tentangku</title>
+    <meta name="description" content="Artikel personal Destyan Ricky Salim tentang profil, perjalanan belajar, keahlian, dan hal-hal yang disukai.">
+    <title>Tentang Diriku | Destyan Ricky Salim</title>
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" type="image/x-icon" href="logo.png">
 </head>
 <body>
+    <header class="site-header">
+        <a class="brand" href="#profile" aria-label="Kembali ke bagian profil">
+            <img src="logo.png" alt="Logo Destyan Ricky Salim">
+            <span>Destyan Ricky Salim</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+            <span class="menu-icon" aria-hidden="true">☰</span>
+            <span class="sr-only">Buka navigasi</span>
+        </button>
+        <nav class="main-nav" id="main-nav" aria-label="Navigasi utama">
+            <a href="#profile">Profil</a>
+            <a href="#perjalanan">Perjalanan</a>
+            <a href="#mata-kuliah">Mata Kuliah</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#disukai">Yang Disukai</a>
+        </nav>
+    </header>
 
-    <div class="top-menu-container">
-        <div class="menu-item-container">
-            <div id="menu-toggle" class="menu-toggle">
-                <i class='bx bx-expand-vertical'></i>
-            </div>
-                <div id="menu-list" class="menu-list">
-                    <a href="#profile">Profil</a>
-                    <a href="#mata-kuliah">Mata Kuliah</a>
-                    <a href="#skills">Keahlian</a>
-                    <a href="#footer">Footer</a>
+    <main>
+        <section id="profile" class="hero section-shell">
+            <div class="hero-copy">
+                <p class="eyebrow">ARTIKEL PERSONAL</p>
+                <h1>Halo, saya <span>Destyan.</span></h1>
+                <p class="lead">Mahasiswa Teknik Informatika yang senang mengubah ide menjadi pengalaman digital yang fungsional, menarik, dan mudah dipahami.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#perjalanan">Kenali saya</a>
+                    <button class="button button-quiet" id="audio-toggle" type="button" aria-expanded="false" aria-controls="audio-panel">Putar musik</button>
                 </div>
-        </div>
-        <div class="menu-item-container">
-            <div id="audio-toggle" class="menu-toggle">
-                <i class='bx bx-play-circle'></i>
-            </div>
-            <div id="audio-list" class="menu-list">
-                </div>
-        </div>
-        <audio id="audio-player"></audio>
-    </div>
-    
-    <section id="profile" class="container">
-        <h1>Artikel Tentang Diriku</h1>
-        <div class="content-wrapper">
-            <div class="profile-section">
-                <div class="profile-image-container">
-                    <img src="muka1.jpg" alt="Foto Diri Anda" class="profile-image square-image">
-                </div>
-                <div class="profile-details">
-                    <p><strong>Nama:</strong> Destyan Ricky Salim</p>
-                    <p><strong>Lulusan:</strong> SMK 17 AGUSTUS 1945 Surabaya</p>
-                    <p><strong>Tanggal Lahir:</strong> 15 Desember 2007</p>
-                    <p><strong>Jurusan:</strong> Teknik Informatika</p>
-                    <p><strong>NIM:</strong> 1462500115</p>
+                <div class="audio-panel" id="audio-panel" hidden>
+                    <p class="audio-label">Teman belajar</p>
+                    <audio id="audio-player" controls preload="metadata">
+                        <source src="Lofi.mp3" type="audio/mpeg">
+                        Browser Anda tidak mendukung pemutar audio.
+                    </audio>
                 </div>
             </div>
-            <div class="form-container">
-                <h3>Form Pendaftaran Mahasiswa Baru</h3>
-                <form action="#">
-                    <label for="nama_mhs">Nama Lengkap:</label>
-                    <input type="text" id="nama_mhs" name="nama_mhs" required>
-                    <br>
-                    <label for="email_mhs">Email:</label>
-                    <input type="email" id="email_mhs" name="email_mhs" required>
-                    <br>
-                    <label for="jurusan_mhs">Jurusan Pilihan:</label>
-                    <input type="text" id="jurusan_mhs" name="jurusan_mhs" required>
-                    <br>
-                    <button type="submit">Daftar</button>
-                </form>
+            <div class="hero-visual">
+                <div class="image-frame">
+                    <img src="muka1.jpg" alt="Foto Destyan Ricky Salim" class="profile-image">
+                </div>
+                <div class="floating-note">
+                    <span class="note-mark">✦</span>
+                    <span>Belajar, berkarya,<br>dan terus berkembang.</span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="#" class="container">
-        <h2>Profil Lengkap</h2>
-        <p>Halo, saya Destyan Ricky Salim, seorang mahasiswa dari Jurusan Teknik Informatika di Universitas 17 Agustus 1945 Surabaya. Sejak dulu, saya memiliki minat besar terhadap dunia Informatika, Game, dan 3d. Saya percaya bahwa pendidikan adalah kunci untuk membuka pintu masa depan yang lebih cerah, dan setiap ilmu yang saya dapatkan adalah kesempatan untuk menciptakan sesuatu yang bermanfaat..</p>
-        <p>Sebagai seorang individu, saya terbiasa mengerjakan proyek-proyek pribadi. Saya memiliki cara kerja yang unik, yaitu dengan menganalisis dan memodifikasi desain dari berbagai referensi yang ada. Saya percaya bahwa inspirasi bisa datang dari mana saja. Saya juga sangat mengandalkan diskusi dengan kecerdasan buatan untuk merancang arsitektur program yang optimal dan memastikan kode berjalan dengan cepat. Di waktu luang, saya suka menonton anime dan membaca manga serta novel untuk mendapatkan inspirasi dan hiburan, yang juga membantu saya melihat cerita dari berbagai sudut pandang</p>
-    </section>
-
-    <section id="mata-kuliah" class="container">
-        <h3>Mata Kuliah yang Dikuasai</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Mata Pelajaran</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Penulisan Ilmiah</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Matematika Logika</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Pengantar Informatika</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Pemrograman Web</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section id="skills" class="container">
-        <h2>Keahlian Tambahan</h2>
-        <div class="skills-list">
-            <div class="skill-item">
-                <h4>Coding</h4>
-                <p>lumayan menguasai beberapa bahasa Pemrograman, seperti HTML, CSS, JS, Java, PHP</p>
+        <section id="perjalanan" class="section-shell section-grid">
+            <div class="section-heading">
+                <p class="eyebrow">01 / TENTANG SAYA</p>
+                <h2>Perjalanan singkat</h2>
             </div>
-            <div class="skill-item">
-                <h4>Manajemen Proyek</h4>
-                <p>Mampu mengerjakan tugas besar sendirian (namun waktu pengerjaan lebih lama)</p>
+            <div class="prose">
+                <p>Nama saya <strong>Destyan Ricky Salim</strong>. Saya merupakan mahasiswa Jurusan Teknik Informatika di Universitas 17 Agustus 1945 Surabaya. Ketertarikan saya pada informatika, game, dan 3D mendorong saya untuk selalu mencoba hal baru dan memahami bagaimana sebuah ide dapat diwujudkan melalui teknologi.</p>
+                <p>Saya terbiasa mengerjakan proyek pribadi dengan menganalisis referensi, memodifikasi desain, dan berdiskusi untuk menemukan arsitektur program yang tepat. Bagi saya, proses belajar bukan hanya tentang menyelesaikan tugas, melainkan tentang membangun cara berpikir yang teliti dan karya yang bermanfaat.</p>
             </div>
-        </div>
-    </section>
+            <div class="bio-cards">
+                <article class="info-card"><span class="card-number">01</span><h3>Nama</h3><p>Destyan Ricky Salim</p></article>
+                <article class="info-card"><span class="card-number">02</span><h3>Pendidikan</h3><p>Teknik Informatika<br>Universitas 17 Agustus 1945 Surabaya</p></article>
+                <article class="info-card"><span class="card-number">03</span><h3>Latar belakang</h3><p>Lulusan SMK 17 Agustus 1945 Surabaya</p></article>
+                <article class="info-card"><span class="card-number">04</span><h3>Identitas akademik</h3><p>NIM 1462500115<br>Lahir 15 Desember 2007</p></article>
+            </div>
+        </section>
+
+        <section id="mata-kuliah" class="section-shell tinted-section">
+            <div class="section-heading centered-heading">
+                <p class="eyebrow">02 / PEMBELAJARAN</p>
+                <h2>Hal yang sedang saya kuasai</h2>
+                <p>Beberapa mata kuliah yang menjadi bagian dari perjalanan akademik saya.</p>
+            </div>
+            <div class="course-grid">
+                <article class="course-card"><span>01</span><h3>Penulisan Ilmiah</h3><p>Menyusun gagasan dan menyampaikannya secara terstruktur.</p></article>
+                <article class="course-card"><span>02</span><h3>Matematika Logika</h3><p>Melatih penalaran untuk memecahkan masalah secara sistematis.</p></article>
+                <article class="course-card"><span>03</span><h3>Pengantar Informatika</h3><p>Memahami dasar-dasar ilmu komputer dan teknologi informasi.</p></article>
+                <article class="course-card"><span>04</span><h3>Pemrograman Web</h3><p>Membangun halaman web yang interaktif dan responsif.</p></article>
+            </div>
+        </section>
+
+        <section id="skills" class="section-shell section-grid">
+            <div class="section-heading">
+                <p class="eyebrow">03 / KEMAMPUAN</p>
+                <h2>Keahlian yang terus diasah</h2>
+            </div>
+            <div class="skills-content">
+                <article class="skill-item">
+                    <div class="skill-title"><h3>Pengembangan web</h3><span>01</span></div>
+                    <p>Memahami HTML, CSS, JavaScript, Java, dan PHP untuk membuat solusi web dari dasar.</p>
+                    <div class="skill-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Java</span><span>PHP</span></div>
+                </article>
+                <article class="skill-item">
+                    <div class="skill-title"><h3>Manajemen proyek</h3><span>02</span></div>
+                    <p>Mampu mengerjakan proyek secara mandiri dengan membagi pekerjaan, meninjau hasil, dan memperbaiki detail secara bertahap.</p>
+                    <div class="skill-tags"><span>Riset</span><span>Desain</span><span>Problem solving</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section id="disukai" class="section-shell favorites-section">
+            <div class="section-heading centered-heading">
+                <p class="eyebrow">04 / TENTANG YANG DISUKAI</p>
+                <h2>Ruang untuk inspirasi</h2>
+                <p>Di waktu luang, saya menikmati anime, manga, novel, musik lofi, dan dunia visual yang memberi banyak inspirasi.</p>
+            </div>
+            <div class="favorite-layout">
+                <div class="video-card">
+                    <video id="video-player" controls preload="metadata" poster="muka.jpg">
+                        <source src="Tensura.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung elemen video.
+                    </video>
+                    <div class="media-caption">
+                        <span class="media-kicker">MEDIA FAVORIT</span>
+                        <h3>Menikmati cerita dan visual</h3>
+                        <p>Konten multimedia dari proyek “Tentang yang Disukai”.</p>
+                    </div>
+                </div>
+                <aside class="favorite-quote">
+                    <span class="quote-mark">“</span>
+                    <p>Cerita yang baik tidak hanya menghibur, tetapi juga membuka cara pandang baru.</p>
+                    <span class="quote-author">— Catatan pribadi</span>
+                </aside>
+            </div>
+        </section>
+
+        <section id="kontak" class="section-shell contact-section">
+            <div>
+                <p class="eyebrow">05 / TERIMA KASIH</p>
+                <h2>Senang bisa berbagi cerita.</h2>
+                <p>Terima kasih sudah berkunjung ke artikel personal saya. Semoga halaman ini memberi gambaran tentang siapa saya dan apa yang saya sukai.</p>
+            </div>
+            <form class="contact-form" id="contact-form">
+                <label for="nama_mhs">Nama lengkap</label>
+                <input type="text" id="nama_mhs" name="nama_mhs" autocomplete="name" required>
+                <label for="email_mhs">Email</label>
+                <input type="email" id="email_mhs" name="email_mhs" autocomplete="email" required>
+                <label for="pesan">Pesan</label>
+                <textarea id="pesan" name="pesan" rows="3" required></textarea>
+                <button class="button button-primary" type="submit">Kirim pesan</button>
+                <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
 
     <footer id="footer">
-        <p>Copyright &copy; 2025 Destyan Ricky Salim. All Rights Reserved.</p>
+        <div class="footer-inner">
+            <p><strong>Destyan Ricky Salim</strong><br>Artikel personal tentang diri, proses belajar, dan inspirasi.</p>
+            <p class="footer-copyright">© <span id="current-year">2026</span> Destyan Ricky Salim</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>

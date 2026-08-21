@@ -1,71 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Data untuk lagu
-    const songs = [
-        { title: 'Lofi', url: 'Lofi.mp3' }
-    ];
-
-    const audioPlayer = document.getElementById('audio-player');
-    const audioToggle = document.getElementById('audio-toggle');
-    const audioList = document.getElementById('audio-list');
     const menuToggle = document.getElementById('menu-toggle');
-    const menuList = document.getElementById('menu-list');
+    const mainNav = document.getElementById('main-nav');
+    const audioToggle = document.getElementById('audio-toggle');
+    const audioPanel = document.getElementById('audio-panel');
+    const audioPlayer = document.getElementById('audio-player');
+    const videoPlayer = document.getElementById('video-player');
+    const contactForm = document.getElementById('contact-form');
+    const formFeedback = document.getElementById('form-feedback');
+    const currentYear = document.getElementById('current-year');
 
-    // Fungsi untuk membuat daftar lagu
-    function populateSongList() {
-        songs.forEach(song => {
-            const songDiv = document.createElement('div');
-            songDiv.className = 'audio-selection-item';
-            songDiv.textContent = song.title;
-            songDiv.onclick = () => {
-                // Langsung putar lagu baru
-                audioPlayer.src = song.url;
-                audioPlayer.play();
-                
-                // Sembunyikan daftar setelah lagu dipilih
-                audioList.classList.remove('active');
-            };
-            audioList.appendChild(songDiv);
+    menuToggle?.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mainNav?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
         });
-    }
-
-    // Fungsi untuk mengaktifkan/menonaktifkan menu dan audio list
-    menuToggle.addEventListener('click', () => {
-        menuList.classList.toggle('active');
-        audioList.classList.remove('active');
     });
 
-    audioToggle.addEventListener('click', () => {
-        audioList.classList.toggle('active');
-        menuList.classList.remove('active');
-    });
-    
-    // Klik di luar menu/audio akan menutupnya
-    document.addEventListener('click', (event) => {
-        if (!event.target.closest('.top-menu-container')) {
-            menuList.classList.remove('active');
-            audioList.classList.remove('active');
+    audioToggle?.addEventListener('click', () => {
+        const isOpen = !audioPanel.hasAttribute('hidden');
+        if (isOpen) {
+            audioPanel.setAttribute('hidden', '');
+        } else {
+            audioPanel.removeAttribute('hidden');
         }
+        audioToggle.setAttribute('aria-expanded', String(!isOpen));
+        audioToggle.textContent = isOpen ? 'Putar musik' : 'Tutup pemutar';
     });
 
-    // Jalankan fungsi
-    populateSongList();
+    videoPlayer?.addEventListener('play', () => {
+        audioPlayer?.pause();
+    });
+
+    videoPlayer?.addEventListener('pause', () => {
+        if (videoPlayer.currentTime > 0 && !videoPlayer.ended) return;
+        audioPlayer?.play().catch(() => {});
+    });
+
+    videoPlayer?.addEventListener('ended', () => {
+        audioPlayer?.play().catch(() => {});
+    });
+
+    contactForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('nama_mhs').value.trim();
+        formFeedback.textContent = `Terima kasih, ${name}. Pesanmu sudah dicatat.`;
+        contactForm.reset();
+    });
+
+    if (currentYear) currentYear.textContent = new Date().getFullYear();
 });
-// Fungsi untuk navigasi
-function setupNavigation() {
-    const links = menuList.querySelectorAll('a');
-    links.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-
-            if (targetSection) {
-                // Mengaktifkan smooth scroll
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
-
-            // Tutup menu setelah navigasi
-            menuList.classList.remove('active');
-        });
-    });
-}
