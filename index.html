@@ -166,6 +166,41 @@
     .track-button:hover, .track-button.is-playing { border-color: var(--accent); background: rgba(228,168,59,.14); transform: translateX(3px); }
     .track-button span:last-child { color: var(--muted); font-size: .58rem; letter-spacing: .07em; text-transform: uppercase; }
 
+    /* Wallet card stack: each card is a tactile layer, selected cards pull forward. */
+    .favorite-layout { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); gap: 42px; align-items: center; margin-top: 46px; }
+    .wallet-scene { position: relative; min-height: 420px; perspective: 1200px; }
+    .wallet-pocket { position: absolute; right: 12%; bottom: 10px; left: 3%; height: 110px; border: 1px solid var(--ink); border-radius: 22px 22px 30px 30px; background: var(--ink); box-shadow: 12px 12px 0 var(--accent); transform: rotate(-4deg) translateZ(-20px); }
+    .wallet-pocket::before { position: absolute; top: 18px; right: 18px; left: 18px; height: 1px; content: ""; background: rgba(255,255,255,.22); }
+    .wallet-pocket::after { position: absolute; right: 20px; bottom: 22px; width: 42px; height: 7px; border-radius: 99px; content: ""; background: var(--accent); }
+    .card-stack { position: absolute; inset: 0 7% 38px 4%; transform-style: preserve-3d; }
+    .favorite-card { position: absolute; inset: 0; display: grid; grid-template-rows: 1fr auto; overflow: hidden; padding: 0; border: 1px solid var(--ink); border-radius: 21px; background: var(--white); box-shadow: 0 16px 34px rgba(38,31,20,.12); color: var(--ink); text-align: left; transform-origin: 50% 100%; transition: transform 360ms var(--ease), box-shadow 360ms var(--ease), filter 360ms var(--ease); will-change: transform; }
+    .favorite-card:nth-child(1) { z-index: 4; transform: translate3d(0,0,28px) rotate(-5deg); }
+    .favorite-card:nth-child(2) { z-index: 3; transform: translate3d(18px,12px,0) rotate(4deg); filter: saturate(.8); }
+    .favorite-card:nth-child(3) { z-index: 2; transform: translate3d(33px,24px,-18px) rotate(9deg); filter: saturate(.7); }
+    .favorite-card:nth-child(4) { z-index: 1; transform: translate3d(48px,36px,-35px) rotate(13deg); filter: saturate(.62); }
+    .favorite-card:nth-child(5) { z-index: 0; transform: translate3d(62px,47px,-48px) rotate(16deg); filter: saturate(.58); }
+    .favorite-card:nth-child(6) { z-index: -1; transform: translate3d(76px,58px,-61px) rotate(19deg); filter: saturate(.54); }
+    .favorite-card:hover, .favorite-card:focus-visible { box-shadow: 0 22px 38px rgba(38,31,20,.2); filter: saturate(1); }
+    .favorite-card:nth-child(1):hover, .favorite-card:nth-child(1):focus-visible { transform: translate3d(-8px,-20px,66px) rotate(-4deg); }
+    .favorite-card:nth-child(2):hover, .favorite-card:nth-child(2):focus-visible { transform: translate3d(10px,-10px,42px) rotate(3deg); }
+    .favorite-card:nth-child(3):hover, .favorite-card:nth-child(3):focus-visible { transform: translate3d(25px,0,24px) rotate(7deg); }
+    .favorite-card:nth-child(4):hover, .favorite-card:nth-child(4):focus-visible { transform: translate3d(40px,10px,8px) rotate(11deg); }
+    .favorite-card:nth-child(5):hover, .favorite-card:nth-child(5):focus-visible { transform: translate3d(54px,20px,0) rotate(14deg); }
+    .favorite-card:nth-child(6):hover, .favorite-card:nth-child(6):focus-visible { transform: translate3d(68px,30px,-8px) rotate(17deg); }
+    .favorite-card.is-selected { z-index: 8; box-shadow: 0 28px 48px rgba(38,31,20,.24); filter: saturate(1); transform: translate3d(-16px,-52px,88px) rotate(-1deg) !important; }
+    .favorite-card img { width: 100%; height: 100%; min-height: 290px; object-fit: cover; }
+    .favorite-card-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px 16px; background: var(--white); font-size: .68rem; font-weight: 950; letter-spacing: .04em; }
+    .favorite-card-label small { color: var(--accent-deep); font-size: .56rem; letter-spacing: .12em; text-transform: uppercase; }
+    .favorite-detail { position: relative; padding: 28px; border: 1px solid var(--ink); border-radius: var(--radius-lg); background: var(--ink); box-shadow: 10px 10px 0 var(--accent); color: var(--paper-soft); transform: translateZ(20px); }
+    .favorite-detail::before { position: absolute; top: 18px; right: 21px; width: 8px; height: 8px; border-radius: 50%; content: ""; background: var(--accent); box-shadow: 14px 0 0 rgba(228,168,59,.45), 28px 0 0 rgba(228,168,59,.2); }
+    .favorite-detail-kicker { margin: 0; color: var(--accent); font-size: .59rem; font-weight: 950; letter-spacing: .15em; text-transform: uppercase; }
+    .favorite-detail h3 { max-width: 390px; margin: 18px 0 8px; font-size: clamp(2rem, 4.6vw, 4.3rem); font-weight: 950; letter-spacing: -.09em; line-height: .9; }
+    .favorite-detail-copy { max-width: 440px; margin: 0; color: #c5c0b6; font-size: .82rem; line-height: 1.7; }
+    .favorite-detail-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .favorite-detail-meta span { padding: 7px 9px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; color: #ded9d0; font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
+    .favorite-video { width: 100%; margin-top: 23px; border: 1px solid rgba(255,255,255,.22); border-radius: 13px; background: #090909; }
+    .favorite-hint { margin: 17px 0 0; color: #a9a49a; font-size: .61rem; letter-spacing: .1em; text-transform: uppercase; }
+
     .closing { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 50px; align-items: end; padding-bottom: 120px; }
     .closing .section-title { max-width: 620px; }
     .closing-copy { max-width: 510px; margin: 23px 0 0; color: var(--muted); font-size: .92rem; line-height: 1.75; }
@@ -200,8 +235,14 @@
       .section-marker span { display: inline; margin: 0; }
       .section-title { margin-top: 23px; font-size: clamp(2.6rem, 13vw, 4.3rem); }
       .section-intro { font-size: .88rem; }
-      .bio-layout, .music-layout, .closing { grid-template-columns: 1fr; }
-      .bio-layout, .music-layout { margin-top: 34px; }
+      .bio-layout, .favorite-layout, .closing { grid-template-columns: 1fr; }
+      .bio-layout, .favorite-layout { margin-top: 34px; }
+      .wallet-scene { min-height: 360px; }
+      .card-stack { inset: 0 3% 32px 0; }
+      .favorite-card img { min-height: 245px; }
+      .favorite-card.is-selected { transform: translate3d(-5px,-30px,65px) rotate(-1deg) !important; }
+      .favorite-detail { margin-top: 13px; }
+      .favorite-video { max-height: 310px; }
       .media-meta { display: block; }
       .media-meta p { max-width: none; margin-top: 8px; text-align: left; }
       .record-card { min-height: 225px; }
@@ -230,8 +271,7 @@
     <nav class="section-progress" aria-label="Navigasi bagian halaman">
       <a class="progress-step is-active" href="#intro" data-progress="intro"><span>Intro</span><i></i></a>
       <a class="progress-step" href="#profil" data-progress="profil"><span>Profil</span><i></i></a>
-      <a class="progress-step" href="#video" data-progress="video"><span>Video</span><i></i></a>
-      <a class="progress-step" href="#musik" data-progress="musik"><span>Musik</span><i></i></a>
+      <a class="progress-step" href="#favorit" data-progress="favorit"><span>Favorit</span><i></i></a>
       <a class="progress-step" href="#penutup" data-progress="penutup"><span>Akhir</span><i></i></a>
     </nav>
 
@@ -243,7 +283,7 @@
           <p class="hero-lede">Mahasiswa Teknik Informatika yang percaya bahwa hal-hal kecil—sebuah ide, potongan musik, atau visual yang tepat—bisa menjadi awal dari sesuatu yang berarti.</p>
           <div class="hero-links">
             <a class="button button-primary" href="#profil">Kenali aku <span aria-hidden="true">↘</span></a>
-            <a class="button button-secondary" href="#musik">Dengarkan lagu</a>
+            <a class="button button-secondary" href="#favorit">Lihat favorit</a>
           </div>
           <p class="hero-note">scroll untuk melihat lebih jauh</p>
         </div>
@@ -283,46 +323,52 @@
           </div>
         </section>
 
-        <section class="section" id="video" data-section="video" data-reveal>
-          <div class="section-marker">03 <span>yang ditonton</span></div>
+        <section class="section" id="favorit" data-section="favorit" data-reveal>
+          <div class="section-marker">03 <span>hal-hal favorit</span></div>
           <div class="section-body">
-            <h2 class="section-title">Satu cerita <em>favorit.</em></h2>
-            <p class="section-intro">Ada cerita yang tinggal lebih lama dari durasinya. Video ini adalah salah satu yang sering saya kembali lihat ketika butuh jeda.</p>
-            <div class="media-card">
-              <div class="media-frame">
-                <span class="media-label">video favorit / putar manual</span>
-                <!-- VIDEO LOKAL: letakkan file video di root repository sebagai ./Tensura.mp4 -->
-                <!-- POSTER LOKAL: file ./2138152-final.webp dipakai sebagai thumbnail sebelum video diputar. -->
-                <video controls preload="metadata" poster="./2138152-final.webp" playsinline>
-                  <source src="./Tensura.mp4" type="video/mp4">
+            <h2 class="section-title">Kartu kecil tentang <em>kesukaanku.</em></h2>
+            <p class="section-intro">Seperti mengambil kartu dari dompet: pilih satu, tarik ke depan, lalu lihat cerita yang tersimpan di baliknya.</p>
+            <div class="favorite-layout">
+              <div class="wallet-scene" aria-label="Kartu favorit Anime dan Game">
+                <div class="card-stack">
+                  <button class="favorite-card is-selected" type="button" data-favorite-card data-title="That Time I Got Reincarnated as a Slime" data-kind="Anime favorit" data-year="Tensura" data-copy="Dunia fantasi, karakter yang tumbuh bersama, dan perjalanan yang selalu terasa lebih besar dari perkiraan." data-poster="./assets/favorites/anime/tensura.png" data-video="./assets/favorites/anime/tensura.mp4">
+                    <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/tensura.png -->
+                    <img src="./assets/favorites/anime/tensura.png" alt="Artwork Tensura" loading="lazy"><span class="favorite-card-label"><span>Tensura</span><small>Anime / 01</small></span>
+                  </button>
+                  <button class="favorite-card" type="button" data-favorite-card data-title="The Beginning After the End" data-kind="Anime favorit" data-year="7 Prince" data-copy="Visual yang lembut, musik yang hidup, dan karakter yang membuat saya betah kembali menonton." data-poster="./assets/favorites/anime/7-prince.png" data-video="./assets/favorites/anime/7-prince.mp4">
+                    <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/7-prince.png -->
+                    <img src="./assets/favorites/anime/7-prince.png" alt="Artwork 7 Prince" loading="lazy"><span class="favorite-card-label"><span>7 Prince</span><small>Anime / 02</small></span>
+                  </button>
+                  <button class="favorite-card" type="button" data-favorite-card data-title="Hunter × Hunter" data-kind="Anime favorit" data-year="Hunter × Hunter" data-copy="Petualangan dengan aturan dunia yang kuat, kejutan yang sabar, dan karakter yang sulit dilupakan." data-poster="./assets/favorites/anime/hunter-x-hunter.jpg" data-video="./assets/favorites/anime/hunter-x-hunter.mp4">
+                    <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/hunter-x-hunter.jpg -->
+                    <img src="./assets/favorites/anime/hunter-x-hunter.jpg" alt="Artwork Hunter X Hunter" loading="lazy"><span class="favorite-card-label"><span>Hunter × Hunter</span><small>Anime / 03</small></span>
+                  </button>
+                  <button class="favorite-card" type="button" data-favorite-card data-title="Wuthering Waves" data-kind="Game favorit" data-year="Open world" data-copy="Eksplorasi, atmosfer, dan dunia yang memberi ruang untuk berhenti sebentar sebelum melanjutkan perjalanan." data-poster="./assets/favorites/game/wuthering-waves.jpg" data-video="./assets/favorites/game/wuthering-waves.mp4">
+                    <!-- POSTER LOKAL GAME: frame pertama dibuat dari video lokal, ./assets/favorites/game/wuthering-waves.jpg -->
+                    <img src="./assets/favorites/game/wuthering-waves.jpg" alt="Poster Wuthering Waves" loading="lazy"><span class="favorite-card-label"><span>Wuthering Waves</span><small>Game / 04</small></span>
+                  </button>
+                  <button class="favorite-card" type="button" data-favorite-card data-title="Mecha Break" data-kind="Game favorit" data-year="Mecha action" data-copy="Mesin besar, ruang terbuka, dan energi trailer yang membuat saya ingin langsung mencoba dunianya." data-poster="./assets/favorites/game/mecha-break.jpg" data-video="./assets/favorites/game/mecha-break.mp4">
+                    <!-- POSTER LOKAL GAME: frame pertama dibuat dari video lokal, ./assets/favorites/game/mecha-break.jpg -->
+                    <img src="./assets/favorites/game/mecha-break.jpg" alt="Poster Mecha Break" loading="lazy"><span class="favorite-card-label"><span>Mecha Break</span><small>Game / 05</small></span>
+                  </button>
+                  <button class="favorite-card" type="button" data-favorite-card data-title="Punishing: Gray Raven" data-kind="Game favorit" data-year="Action RPG" data-copy="Kombinasi visual yang tajam, gerak yang cepat, dan atmosfer futuristik yang selalu menarik perhatian." data-poster="./assets/favorites/game/punishing-gray-raven.jpg" data-video="./assets/favorites/game/punishing-gray-raven.mp4">
+                    <!-- POSTER LOKAL GAME: frame pertama dibuat dari video lokal, ./assets/favorites/game/punishing-gray-raven.jpg -->
+                    <img src="./assets/favorites/game/punishing-gray-raven.jpg" alt="Poster Punishing Gray Raven" loading="lazy"><span class="favorite-card-label"><span>Punishing: Gray Raven</span><small>Game / 06</small></span>
+                  </button>
+                </div>
+                <div class="wallet-pocket" aria-hidden="true"></div>
+              </div>
+              <div class="favorite-detail" aria-live="polite">
+                <p class="favorite-detail-kicker" id="favorite-kind">Anime favorit · Tensura</p>
+                <h3 id="favorite-title">That Time I Got Reincarnated as a Slime</h3>
+                <p class="favorite-detail-copy" id="favorite-copy">Dunia fantasi, karakter yang tumbuh bersama, dan perjalanan yang selalu terasa lebih besar dari perkiraan.</p>
+                <div class="favorite-detail-meta"><span id="favorite-year">Tensura</span><span>putar manual</span><span>lokal</span></div>
+                <!-- VIDEO FAVORIT LOKAL: player berganti mengikuti kartu yang dipilih; tidak autoplay. -->
+                <video class="favorite-video" id="favorite-video" controls preload="metadata" poster="./assets/favorites/anime/tensura.png" playsinline>
+                  <source id="favorite-video-source" src="./assets/favorites/anime/tensura.mp4" type="video/mp4">
                   Browser Anda belum mendukung elemen video HTML5.
                 </video>
-              </div>
-              <div class="media-meta"><div><h3>Ruang untuk cerita</h3><p>Konten favorit yang mengingatkan saya pada dunia visual, karakter, dan perjalanan yang panjang.</p></div><span class="portrait-index">03 / 05</span></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="musik" data-section="musik" data-reveal>
-          <div class="section-marker">04 <span>yang didengar</span></div>
-          <div class="section-body">
-            <h2 class="section-title">Nada untuk <em>berpikir.</em></h2>
-            <p class="section-intro">Musik lofi menemani banyak hal: menulis, menyusun ide, atau sekadar membiarkan sore berjalan tanpa terburu-buru.</p>
-            <div class="music-layout">
-              <div class="record-card"><p class="record-kicker">playlist / 01 track</p><h3>Soundtrack<br>untuk hari<br>yang tenang.</h3></div>
-              <div class="player-card">
-                <span class="track-number">Sedang diputar · <span id="track-position">01</span></span>
-                <h3 id="track-title">Lofi — ruang untuk fokus</h3>
-                <p id="track-meta">Satu lagu, satu suasana.</p>
-                <!-- AUDIO LOKAL: letakkan file audio di root repository sebagai ./Lofi.mp3 -->
-                <audio id="audio-player" controls preload="metadata">
-                  <source id="audio-source" src="./Lofi.mp3" type="audio/mpeg">
-                  Browser Anda belum mendukung elemen audio HTML5.
-                </audio>
-                <div class="track-list" aria-label="Daftar lagu">
-                  <button class="track-button is-playing" type="button" data-track="0"><span>01 · Lofi — ruang untuk fokus</span><span>lokal</span></button>
-                  <!-- Tambahkan track lokal kedua di sini bila tersedia; JS playlist siap dikembangkan. -->
-                </div>
+                <p class="favorite-hint">klik kartu untuk mengambilnya dari dompet</p>
               </div>
             </div>
           </div>
@@ -353,19 +399,16 @@
       const steps = [...document.querySelectorAll('[data-progress]')];
       const tiltWrap = document.querySelector('[data-tilt-wrap]');
       const tiltCard = document.querySelector('[data-tilt-card]');
-      const audio = document.querySelector('#audio-player');
-      const audioSource = document.querySelector('#audio-source');
-      const trackTitle = document.querySelector('#track-title');
-      const trackMeta = document.querySelector('#track-meta');
-      const trackPosition = document.querySelector('#track-position');
-      const trackButtons = [...document.querySelectorAll('[data-track]')];
+      const favoriteCards = [...document.querySelectorAll('[data-favorite-card]')];
+      const favoriteKind = document.querySelector('#favorite-kind');
+      const favoriteTitle = document.querySelector('#favorite-title');
+      const favoriteCopy = document.querySelector('#favorite-copy');
+      const favoriteYear = document.querySelector('#favorite-year');
+      const favoriteVideo = document.querySelector('#favorite-video');
+      const favoriteVideoSource = document.querySelector('#favorite-video-source');
       let activeSection = 'intro';
       let rafId = 0;
       let targetShift = 0;
-
-      const playlist = [
-        { title: 'Lofi — ruang untuk fokus', meta: 'Satu lagu, satu suasana.', src: './Lofi.mp3' }
-      ];
 
       function updateProgress() {
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -419,30 +462,36 @@
         tiltWrap.addEventListener('pointerleave', () => { tiltCard.style.transform = 'rotate(4deg)'; });
       }
 
-      function loadTrack(index, autoplay = false) {
-        const track = playlist[index];
-        if (!track) return;
-        audioSource.src = track.src;
-        audio.load();
-        trackTitle.textContent = track.title;
-        trackMeta.textContent = track.meta;
-        trackPosition.textContent = String(index + 1).padStart(2, '0');
-        trackButtons.forEach((button) => button.classList.toggle('is-playing', Number(button.dataset.track) === index));
-        if (autoplay) audio.play().catch(() => {});
+      function selectFavorite(card) {
+        favoriteCards.forEach((item) => item.classList.toggle('is-selected', item === card));
+        favoriteKind.textContent = `${card.dataset.kind} · ${card.dataset.year}`;
+        favoriteTitle.textContent = card.dataset.title;
+        favoriteCopy.textContent = card.dataset.copy;
+        favoriteYear.textContent = card.dataset.year;
+        favoriteVideo.pause();
+        favoriteVideo.poster = card.dataset.poster;
+        favoriteVideoSource.src = card.dataset.video;
+        favoriteVideo.load();
       }
 
-      function setupPlaylist() {
-        trackButtons.forEach((button) => {
-          button.addEventListener('click', () => loadTrack(Number(button.dataset.track), true));
+      function setupFavorites() {
+        favoriteCards.forEach((card) => {
+          card.addEventListener('click', () => selectFavorite(card));
+          card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              selectFavorite(card);
+            }
+          });
         });
-        audio.addEventListener('ended', () => { trackButtons[0]?.focus({ preventScroll: true }); });
+        if (favoriteCards[0]) selectFavorite(favoriteCards[0]);
       }
 
       window.addEventListener('scroll', updateProgress, { passive: true });
       window.addEventListener('resize', updateProgress, { passive: true });
       revealSections();
       setupTilt();
-      setupPlaylist();
+      setupFavorites();
       updateProgress();
     })();
   </script>
