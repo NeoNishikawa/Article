@@ -1,5 +1,4 @@
 /*
-  Redesign note:
   The active visual system lives in index.html so the page is a truly standalone,
   offline-ready file. This file is intentionally retained as a compatibility note
   for the original repository structure and contains no external import.

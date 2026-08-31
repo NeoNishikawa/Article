@@ -1,60 +1,53 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <!-- Design contract: Obsidian Violet Ledger — dark graphite surfaces, one violet accent, airy sections, restrained 3D depth, native offline behavior. -->
+  <!--
+    Design contract: Analog Field Notes.
+    Personal, warm, spacious, and tactile: ink + paper neutrals with one saffron accent.
+    Offline contract: no CDN, no external import, no dependency. Media stays relative/local.
+  -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Form perkenalan mahasiswa yang personal, modern, dan dapat digunakan sepenuhnya offline.">
-  <meta name="theme-color" content="#111116">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23111116'/%3E%3Cpath d='M24 19H18v26h6M40 19h6v26h-6M28 32h8' fill='none' stroke='%239b7bff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-  <title>Ruang Diri — Form Perkenalan Mahasiswa</title>
+  <meta name="description" content="Tentang Aku — cerita singkat, foto, video favorit, dan lagu favorit Destyan.">
+  <meta name="theme-color" content="#f1ede6">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231d1d1b'/%3E%3Cpath d='M17 18h30M17 31h21M17 44h30' stroke='%23e4a83b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <title>Tentang Aku — Destyan Ricky Salim</title>
   <style>
-    /*
-      Design contract: Obsidian Violet Ledger.
-      Dark editorial minimalism, graphite layers, one Violet Signal accent,
-      clear section rhythm, useful motion, and system fonts only.
-    */
+    /* Design contract: Analog Field Notes — warm paper, ink, one saffron accent, generous rhythm. */
     :root {
-      --ink: #111116;
-      --ink-deep: #0b0b0f;
-      --ink-raised: #17171e;
-      --graphite: #202029;
-      --graphite-soft: #292933;
-      --line: rgba(255, 255, 255, .11);
-      --line-strong: rgba(255, 255, 255, .19);
-      --paper: #f3f1f6;
-      --paper-soft: #d8d4df;
-      --muted: #a19daa;
-      --muted-deep: #76727f;
-      --violet: #9b7bff;
-      --violet-soft: #b9a7ff;
-      --violet-deep: #6449c6;
-      --violet-wash: rgba(155, 123, 255, .1);
-      --success: #8de2b6;
-      --danger: #ff9d9d;
-      --shadow-lg: 0 38px 100px rgba(0, 0, 0, .42);
-      --shadow-md: 0 18px 38px rgba(0, 0, 0, .25);
-      --radius-card: 22px;
-      --radius-field: 12px;
-      --ease-out: cubic-bezier(.23, 1, .32, 1);
-      --ease-space: cubic-bezier(.77, 0, .175, 1);
-      --page-shift: 0px;
-      color-scheme: dark;
+      --paper: #f1ede6;
+      --paper-deep: #e5dfd5;
+      --paper-soft: #faf8f4;
+      --ink: #1d1d1b;
+      --ink-soft: #353431;
+      --muted: #78756e;
+      --line: rgba(29, 29, 27, .15);
+      --line-strong: rgba(29, 29, 27, .28);
+      --accent: #e4a83b;
+      --accent-deep: #af7119;
+      --white: #fffdf9;
+      --shadow-1: 0 10px 28px rgba(38, 31, 20, .08);
+      --shadow-2: 0 30px 70px rgba(38, 31, 20, .16);
+      --radius-lg: 24px;
+      --radius-md: 14px;
+      --ease: cubic-bezier(.23, 1, .32, 1);
+      --scroll-shift: 0px;
+      color-scheme: light;
     }
 
     * { box-sizing: border-box; }
-    html { min-width: 320px; background: var(--ink-deep); scroll-behavior: smooth; }
+    html { min-width: 320px; background: var(--paper); scroll-behavior: smooth; }
     body {
       min-width: 320px;
-      min-height: 100vh;
       margin: 0;
       overflow-x: hidden;
-      color: var(--paper);
+      color: var(--ink);
       background:
-        radial-gradient(circle at 80% 9%, rgba(100, 73, 198, .16), transparent 25rem),
-        radial-gradient(circle at 18% 49%, rgba(255, 255, 255, .032), transparent 28rem),
-        var(--ink-deep);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        radial-gradient(circle at 87% 4%, rgba(228, 168, 59, .16), transparent 25rem),
+        linear-gradient(90deg, rgba(29,29,27,.028) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 56px 56px, auto;
+      font-family: Bank Gothic, "Bank Gothic Md BT", "Arial Narrow", "Segoe UI", Arial, sans-serif;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -65,556 +58,392 @@
       inset: 0;
       pointer-events: none;
       content: "";
-      opacity: .52;
-      background-image: linear-gradient(rgba(255,255,255,.019) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.019) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 78%);
+      opacity: .16;
+      background-image: radial-gradient(rgba(29,29,27,.24) .6px, transparent .6px);
+      background-size: 5px 5px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
     }
     a { color: inherit; }
-    button, input, textarea { font: inherit; }
-    button, label { cursor: pointer; }
-    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--violet-soft); outline-offset: 4px; }
-    img, svg { display: block; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    button { font: inherit; }
+    button, a { cursor: pointer; }
+    img, video { display: block; max-width: 100%; }
+    button:focus-visible, a:focus-visible, audio:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-    .page { width: min(1240px, calc(100% - 40px)); margin: 0 auto; }
-    .site-header { display: flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 82px; border-bottom: 1px solid var(--line); }
-    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--paper); text-decoration: none; }
-    .brand-mark { display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid rgba(155,123,255,.42); border-radius: 11px; background: var(--violet-wash); box-shadow: 0 8px 18px rgba(0,0,0,.15); }
-    .brand-mark svg { width: 20px; height: 20px; }
-    .brand-copy { display: grid; gap: 1px; }
-    .brand-name { margin: 0; font-size: .88rem; font-weight: 780; letter-spacing: -.035em; }
-    .brand-meta { margin: 0; color: var(--muted-deep); font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-    .header-note { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-size: .71rem; }
-    .header-note::before { width: 6px; height: 6px; border-radius: 50%; content: ""; background: var(--success); box-shadow: 0 0 0 4px rgba(141,226,182,.09); }
+    .progress-track { position: fixed; z-index: 60; top: 0; right: 0; left: 0; height: 3px; background: rgba(29,29,27,.08); }
+    .progress-fill { display: block; width: 0; height: 100%; background: var(--accent); transition: width 100ms linear; }
+    .page { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
 
-    .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr); align-items: center; gap: clamp(44px, 9vw, 140px); min-height: 630px; padding: 88px 0 96px; perspective: 1200px; }
-    .hero-copy { position: relative; z-index: 1; max-width: 700px; }
-    .eyebrow { margin: 0 0 17px; color: var(--violet-soft); font-size: .65rem; font-weight: 800; letter-spacing: .18em; line-height: 1.4; text-transform: uppercase; }
-    .hero h1 { max-width: 750px; margin: 0; color: var(--paper); font-size: clamp(2.9rem, 7.1vw, 6.8rem); font-weight: 820; letter-spacing: -.09em; line-height: .93; overflow-wrap: break-word; }
-    .hero h1 span { color: var(--violet-soft); }
-    .hero-lede { max-width: 510px; margin: 28px 0 0; color: var(--muted); font-size: clamp(.92rem, 1.3vw, 1.06rem); line-height: 1.68; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
-    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 19px; border: 1px solid transparent; border-radius: 11px; font-size: .74rem; font-weight: 800; text-decoration: none; transition: transform 160ms var(--ease-out), background 180ms var(--ease-out), border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
+    .site-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 82px; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; }
+    .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--ink); border-radius: 50%; background: var(--accent); box-shadow: 4px 4px 0 var(--ink); transform: rotate(-7deg); }
+    .brand-mark span { font-size: .75rem; font-weight: 900; letter-spacing: -.1em; }
+    .brand-copy { display: grid; gap: 0; }
+    .brand-name { margin: 0; font-size: .85rem; font-weight: 900; letter-spacing: -.04em; }
+    .brand-sub { margin: 0; color: var(--muted); font-size: .58rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .header-status { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; }
+    .header-status::before { width: 7px; height: 7px; border-radius: 50%; content: ""; background: var(--accent); box-shadow: 0 0 0 4px rgba(228,168,59,.14); }
+
+    .section-progress { position: fixed; z-index: 40; top: 50%; right: 22px; display: grid; gap: 9px; transform: translateY(-50%); }
+    .progress-step { display: flex; align-items: center; justify-content: flex-end; gap: 8px; color: var(--muted); font-size: .58rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; opacity: .66; transition: color 180ms var(--ease), opacity 180ms var(--ease); }
+    .progress-step i { display: block; width: 7px; height: 7px; border: 1px solid var(--muted); border-radius: 50%; background: transparent; transition: transform 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease); }
+    .progress-step.is-active { color: var(--ink); opacity: 1; }
+    .progress-step.is-active i { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px rgba(228,168,59,.18); transform: scale(1.2); }
+
+    .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(270px, .7fr); align-items: center; gap: clamp(46px, 9vw, 130px); min-height: 690px; padding: 100px 0 110px; perspective: 1200px; }
+    .hero-copy { position: relative; z-index: 1; }
+    .eyebrow { margin: 0 0 20px; color: var(--accent-deep); font-size: .63rem; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; }
+    .hero h1 { max-width: 720px; margin: 0; font-size: clamp(3.25rem, 8.4vw, 8.1rem); font-weight: 950; letter-spacing: -.095em; line-height: .88; }
+    .hero h1 em { color: var(--accent-deep); font-style: normal; }
+    .hero-lede { max-width: 500px; margin: 30px 0 0; color: var(--muted); font-size: clamp(.91rem, 1.3vw, 1.05rem); line-height: 1.75; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 19px; border: 1px solid var(--ink); border-radius: 999px; font-size: .68rem; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: transform 160ms var(--ease), background 180ms var(--ease), color 180ms var(--ease), box-shadow 180ms var(--ease); }
     .button:active { transform: translateY(2px) scale(.98); }
-    .button-primary { color: #120e1d; background: var(--violet); box-shadow: 0 13px 24px rgba(93,63,190,.27), 0 1px 0 rgba(255,255,255,.25) inset; }
-    .button-primary:hover { background: var(--violet-soft); transform: translateY(-2px); }
-    .button-secondary { color: var(--paper-soft); border-color: var(--line-strong); background: rgba(255,255,255,.025); }
-    .button-secondary:hover { color: var(--paper); border-color: var(--violet); background: var(--violet-wash); transform: translateY(-2px); }
-    .scroll-cue { display: inline-flex; align-items: center; gap: 10px; margin-top: 62px; color: var(--muted-deep); font-size: .65rem; letter-spacing: .13em; text-transform: uppercase; }
-    .scroll-cue span { display: inline-block; width: 26px; height: 1px; background: var(--violet); }
+    .button-primary { background: var(--ink); color: var(--paper-soft); box-shadow: 5px 5px 0 var(--accent); }
+    .button-primary:hover { background: var(--accent); color: var(--ink); transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--ink); }
+    .button-secondary { background: transparent; color: var(--ink); }
+    .button-secondary:hover { background: var(--white); transform: translateY(-2px); }
+    .hero-note { display: flex; align-items: center; gap: 11px; margin-top: 70px; color: var(--muted); font-size: .63rem; letter-spacing: .11em; text-transform: uppercase; }
+    .hero-note::before { width: 30px; height: 1px; content: ""; background: var(--ink); }
 
-    .hero-card-wrap { position: relative; justify-self: end; width: min(100%, 390px); perspective: 1100px; }
-    .hero-card { position: relative; min-height: 360px; padding: 25px; overflow: hidden; border: 1px solid var(--line-strong); border-radius: var(--radius-card); background: linear-gradient(145deg, rgba(45,44,56,.9), rgba(24,24,31,.93)); box-shadow: var(--shadow-lg); transform-style: preserve-3d; transform: rotateZ(3deg) rotateX(2deg); transition: transform 280ms var(--ease-out), box-shadow 280ms var(--ease-out); }
-    .hero-card:hover { box-shadow: 0 44px 105px rgba(0,0,0,.5); }
-    .hero-card::before, .hero-card::after { position: absolute; pointer-events: none; content: ""; border: 1px solid rgba(155,123,255,.2); border-radius: 50%; transform: translateZ(8px) rotate(-16deg); }
-    .hero-card::before { width: 270px; height: 270px; right: -100px; bottom: -115px; }
-    .hero-card::after { width: 190px; height: 190px; right: -61px; bottom: -76px; border-color: rgba(255,255,255,.11); }
-    .card-topline { display: flex; align-items: center; justify-content: space-between; gap: 15px; color: var(--muted); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; transform: translateZ(28px); }
-    .card-topline strong { color: var(--violet-soft); font-weight: 800; }
-    .card-avatar { position: relative; display: grid; place-items: center; width: 160px; height: 160px; margin: 47px auto 32px; border: 1px solid rgba(155,123,255,.48); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #383348 0 16%, #24232e 40%, #15151b 74%); box-shadow: 0 0 0 9px rgba(155,123,255,.07), 0 28px 42px rgba(0,0,0,.35); transform: translateZ(48px); }
-    .card-avatar::before, .card-avatar::after { position: absolute; content: ""; border-radius: 50%; transform: rotate(-22deg); }
-    .card-avatar::before { width: 190px; height: 60px; border: 1px solid rgba(155,123,255,.35); }
-    .card-avatar::after { width: 216px; height: 76px; border: 1px solid rgba(255,255,255,.11); transform: rotate(24deg); }
-    .avatar-core { display: grid; place-items: center; width: 108px; height: 108px; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; color: var(--violet-soft); background: #1c1b24; font-size: 1.65rem; font-weight: 820; letter-spacing: -.09em; box-shadow: 0 0 34px rgba(155,123,255,.17) inset; }
-    .card-label { position: relative; z-index: 1; margin: 0; color: var(--paper); font-size: 1.18rem; font-weight: 760; letter-spacing: -.05em; text-align: center; transform: translateZ(32px); }
-    .card-caption { position: relative; z-index: 1; max-width: 210px; margin: 7px auto 0; color: var(--muted); font-size: .73rem; line-height: 1.5; text-align: center; transform: translateZ(24px); }
-    .card-sticker { position: absolute; right: -21px; bottom: 34px; z-index: 2; display: grid; place-items: center; width: 80px; height: 80px; border: 1px solid rgba(155,123,255,.36); border-radius: 50%; color: var(--violet-soft); background: rgba(24,23,32,.9); font-size: .6rem; font-weight: 800; letter-spacing: .08em; line-height: 1.3; text-align: center; transform: rotate(12deg) translateZ(65px); }
-    .hero-orbit { position: absolute; right: -15%; bottom: -13%; width: 390px; height: 390px; pointer-events: none; border: 1px solid rgba(155,123,255,.12); border-radius: 50%; transform: translateY(var(--page-shift)) rotate(-18deg); transition: transform 80ms linear; }
-    .hero-orbit::after { position: absolute; inset: 25px; border: 1px solid rgba(255,255,255,.06); border-radius: 50%; content: ""; }
+    .portrait-wrap { position: relative; justify-self: end; width: min(100%, 380px); perspective: 1000px; }
+    .portrait-card { position: relative; overflow: hidden; border: 1px solid var(--ink); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-2); transform-style: preserve-3d; transform: rotate(4deg); transition: transform 220ms var(--ease), box-shadow 220ms var(--ease); will-change: transform; }
+    .portrait-card::before { position: absolute; z-index: 2; inset: 13px; border: 1px solid rgba(255,255,255,.55); border-radius: 17px; pointer-events: none; content: ""; transform: translateZ(24px); }
+    .portrait-image { width: 100%; height: 455px; object-fit: cover; filter: saturate(.88) contrast(1.03); transform: translateZ(5px); }
+    .portrait-caption { position: relative; z-index: 3; display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; padding: 18px 20px 21px; background: var(--white); transform: translateZ(30px); }
+    .portrait-caption p { margin: 0; }
+    .portrait-caption .name { font-size: 1.12rem; font-weight: 950; letter-spacing: -.06em; }
+    .portrait-caption .role { margin-top: 3px; color: var(--muted); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; }
+    .portrait-index { color: var(--accent-deep); font-size: .72rem; font-weight: 900; }
+    .portrait-sticker { position: absolute; right: -28px; bottom: 84px; z-index: 5; display: grid; place-items: center; width: 92px; height: 92px; border: 1px solid var(--ink); border-radius: 50%; background: var(--accent); box-shadow: 5px 5px 0 var(--ink); color: var(--ink); font-size: .61rem; font-weight: 900; letter-spacing: .08em; line-height: 1.25; text-align: center; text-transform: uppercase; transform: rotate(13deg) translateZ(50px); }
+    .portrait-orbit { position: absolute; right: -23%; bottom: -10%; width: 390px; height: 250px; border: 1px solid rgba(29,29,27,.22); border-radius: 50%; pointer-events: none; transform: translateY(var(--scroll-shift)) rotate(-15deg); transition: transform 80ms linear; }
+    .portrait-orbit::after { position: absolute; inset: 21px 44px; border: 1px solid rgba(29,29,27,.16); border-radius: 50%; content: ""; }
 
-    .progress-bar { position: fixed; z-index: 50; top: 0; right: 0; left: 0; height: 2px; background: rgba(255,255,255,.06); }
-    .progress-fill { display: block; width: 0%; height: 100%; background: var(--violet); box-shadow: 0 0 12px rgba(155,123,255,.7); transition: width 100ms linear; }
-    .section-progress { position: fixed; z-index: 40; top: 50%; right: 22px; display: grid; gap: 11px; transform: translateY(-50%); }
-    .progress-step { display: flex; align-items: center; justify-content: flex-end; gap: 8px; color: var(--muted-deep); font-size: .6rem; font-weight: 800; letter-spacing: .08em; }
-    .progress-step i { display: block; width: 6px; height: 6px; border: 1px solid var(--muted-deep); border-radius: 50%; transition: transform 180ms var(--ease-out), background 180ms var(--ease-out), border-color 180ms var(--ease-out); }
-    .progress-step.is-active { color: var(--paper); }
-    .progress-step.is-active i { border-color: var(--violet); background: var(--violet); box-shadow: 0 0 0 4px rgba(155,123,255,.11); transform: scale(1.25); }
+    .content-shell { max-width: 960px; margin: 0 auto; perspective: 1300px; }
+    .section { position: relative; display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 38px; padding: 105px 0 116px; border-top: 1px solid var(--line); transform-style: preserve-3d; }
+    .section:first-child { border-top: 0; }
+    .section-marker { padding-top: 7px; color: var(--accent-deep); font-size: .66rem; font-weight: 950; letter-spacing: .16em; }
+    .section-marker span { display: block; margin-top: 9px; color: var(--muted); font-size: .58rem; letter-spacing: .08em; line-height: 1.5; }
+    .section-body { min-width: 0; }
+    .section-title { max-width: 690px; margin: 0; font-size: clamp(2.05rem, 5vw, 4.7rem); font-weight: 950; letter-spacing: -.095em; line-height: .93; }
+    .section-title em { color: var(--accent-deep); font-style: normal; }
+    .section-intro { max-width: 570px; margin: 19px 0 0; color: var(--muted); font-size: .93rem; line-height: 1.78; }
+    .section[data-reveal] { opacity: 0; transform: translateY(46px) translateZ(-20px); transition: opacity 650ms var(--ease), transform 850ms var(--ease); }
+    .section[data-reveal].is-visible { opacity: 1; transform: translateY(0) translateZ(0); }
 
-    .form-shell { position: relative; max-width: 940px; margin: 0 auto 100px; padding: 12px 0 0; perspective: 1400px; }
-    .form-shell::before { position: absolute; top: 44px; bottom: 44px; left: 44px; width: 1px; content: ""; background: linear-gradient(var(--violet), rgba(155,123,255,.05)); opacity: .65; }
-    .form-section { position: relative; padding: 64px 0 76px 82px; border-top: 1px solid var(--line); transform-style: preserve-3d; }
-    .form-section:first-child { border-top: 0; }
-    .section-index { position: absolute; top: 70px; left: 0; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line-strong); border-radius: 12px; color: var(--muted); background: var(--ink-raised); font-size: .65rem; font-variant-numeric: tabular-nums; font-weight: 820; box-shadow: 0 5px 12px rgba(0,0,0,.2); transform: translateZ(18px); transition: color 180ms var(--ease-out), border-color 180ms var(--ease-out), background 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
-    .form-section.is-active .section-index { color: var(--ink); border-color: var(--violet); background: var(--violet); box-shadow: 0 0 0 7px rgba(155,123,255,.09), 0 10px 20px rgba(0,0,0,.25); }
-    .section-heading { max-width: 650px; margin-bottom: 31px; }
-    .section-heading h2 { margin: 0; color: var(--paper); font-size: clamp(1.55rem, 3vw, 2.35rem); font-weight: 800; letter-spacing: -.07em; line-height: 1.05; }
-    .section-heading p { max-width: 570px; margin: 11px 0 0; color: var(--muted); font-size: .85rem; line-height: 1.62; }
-    .section-kicker { margin: 0 0 12px; color: var(--violet-soft); font-size: .62rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .bio-layout { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 36px; align-items: start; margin-top: 45px; }
+    .bio-copy p { margin: 0 0 18px; color: var(--ink-soft); font-size: 1rem; line-height: 1.85; }
+    .fact-list { display: grid; gap: 0; margin: 0; border-top: 1px solid var(--line-strong); }
+    .fact { display: grid; grid-template-columns: 72px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .fact dt { color: var(--accent-deep); font-size: .59rem; font-weight: 950; letter-spacing: .1em; text-transform: uppercase; }
+    .fact dd { margin: 0; color: var(--ink-soft); font-size: .79rem; line-height: 1.5; }
+    .quote-card { position: relative; padding: 26px 23px 24px; border: 1px solid var(--ink); border-radius: var(--radius-md); background: var(--ink); box-shadow: 9px 9px 0 var(--accent); color: var(--paper-soft); transform: rotate(-2deg) translateZ(18px); }
+    .quote-card::before { position: absolute; top: -16px; right: 22px; width: 32px; height: 38px; border: 1px solid var(--ink); background: var(--accent); content: ""; transform: rotate(7deg); }
+    .quote-card blockquote { margin: 0; font-size: 1.05rem; font-weight: 800; letter-spacing: -.04em; line-height: 1.25; }
+    .quote-card cite { display: block; margin-top: 24px; color: #bdb9af; font-size: .6rem; font-style: normal; letter-spacing: .1em; text-transform: uppercase; }
 
-    .profile-zone { display: grid; grid-template-columns: minmax(0, 1fr) 220px; align-items: center; gap: 28px; padding: 23px; border: 1px solid var(--line); border-radius: var(--radius-card); background: rgba(29,29,38,.72); box-shadow: var(--shadow-md); transform-style: preserve-3d; }
-    .profile-zone[data-tilt] { will-change: transform; transition: transform 180ms var(--ease-out); }
-    .profile-copy { transform: translateZ(22px); }
-    .profile-copy h3 { margin: 0; color: var(--paper); font-size: .99rem; font-weight: 780; letter-spacing: -.035em; }
-    .profile-copy p { max-width: 410px; margin: 8px 0 17px; color: var(--muted); font-size: .78rem; line-height: 1.55; }
-    .upload-row { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
-    .upload-button { display: inline-flex; align-items: center; justify-content: center; min-height: 37px; padding: 0 13px; border: 1px solid var(--line-strong); border-radius: 9px; color: var(--paper-soft); background: rgba(255,255,255,.04); font-size: .7rem; font-weight: 800; transition: background 180ms var(--ease-out), border-color 180ms var(--ease-out), color 180ms var(--ease-out), transform 160ms var(--ease-out); }
-    .upload-button:hover { color: var(--paper); border-color: var(--violet); background: var(--violet-wash); transform: translateY(-2px); }
-    .upload-button:active { transform: translateY(1px) scale(.98); }
-    .file-state { color: var(--muted-deep); font-size: .66rem; }
-    .avatar-stage { position: relative; justify-self: center; width: 170px; height: 170px; transform-style: preserve-3d; }
-    .avatar-stage::before, .avatar-stage::after { position: absolute; inset: 2px; border: 1px solid rgba(155,123,255,.33); border-radius: 50%; content: ""; transform: rotateX(68deg) rotateZ(-25deg) translateZ(6px); }
-    .avatar-stage::after { inset: 15px -10px; border-color: rgba(255,255,255,.1); transform: rotateX(68deg) rotateZ(30deg) translateZ(2px); }
-    .avatar-preview { position: absolute; inset: 26px; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(155,123,255,.46); border-radius: 50%; color: var(--violet-soft); background: radial-gradient(circle at 33% 25%, #41395b, #211f2b 52%, #14141a 100%); box-shadow: 0 0 0 8px rgba(155,123,255,.07), 0 17px 30px rgba(0,0,0,.3); transform: translateZ(38px); }
-    .avatar-preview span { font-size: 1.55rem; font-weight: 820; letter-spacing: -.1em; }
-    .avatar-preview img { width: 100%; height: 100%; object-fit: cover; }
-    .avatar-dot { position: absolute; right: 19px; bottom: 25px; z-index: 2; width: 18px; height: 18px; border: 3px solid var(--graphite); border-radius: 50%; background: var(--violet); transform: translateZ(54px); }
+    .media-card { margin-top: 44px; padding: 13px; border: 1px solid var(--line-strong); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-1); transform-style: preserve-3d; }
+    .media-frame { position: relative; overflow: hidden; border-radius: 15px; background: var(--ink); }
+    .media-frame video { width: 100%; aspect-ratio: 16 / 8.5; object-fit: cover; filter: saturate(.86); }
+    .media-label { position: absolute; top: 15px; left: 15px; z-index: 2; padding: 7px 10px; border: 1px solid rgba(255,255,255,.38); border-radius: 999px; color: var(--white); background: rgba(29,29,27,.6); font-size: .58rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; backdrop-filter: blur(8px); }
+    .media-meta { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 21px 9px 10px; }
+    .media-meta h3 { margin: 0; font-size: 1.15rem; font-weight: 950; letter-spacing: -.06em; }
+    .media-meta p { max-width: 330px; margin: 4px 0 0; color: var(--muted); font-size: .72rem; line-height: 1.55; text-align: right; }
 
-    .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 18px; }
-    .field { min-width: 0; }
-    .field-wide { grid-column: 1 / -1; }
-    .field-label { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; margin-bottom: 9px; color: var(--paper-soft); font-size: .73rem; font-weight: 780; }
-    .field-label small { color: var(--muted-deep); font-size: .58rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    .input, .textarea { display: block; width: 100%; border: 1px solid var(--line-strong); border-radius: var(--radius-field); color: var(--paper); background: rgba(29,29,38,.76); box-shadow: 0 1px 0 rgba(255,255,255,.025) inset; transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out), background 180ms var(--ease-out), transform 180ms var(--ease-out); }
-    .input { height: 50px; padding: 0 15px; }
-    .textarea { min-height: 132px; padding: 14px 15px; resize: vertical; line-height: 1.6; }
-    .input::placeholder, .textarea::placeholder { color: #6f6b78; opacity: 1; }
-    .input:hover, .textarea:hover { border-color: rgba(255,255,255,.3); }
-    .input:focus, .textarea:focus { border-color: var(--violet); outline: none; background: rgba(36,34,48,.9); box-shadow: 0 0 0 4px rgba(155,123,255,.1), 0 1px 0 rgba(255,255,255,.05) inset; transform: translateZ(4px); }
-    .input.is-valid, .textarea.is-valid { border-color: rgba(141,226,182,.72); }
-    .input.is-invalid, .textarea.is-invalid { border-color: rgba(255,157,157,.85); box-shadow: 0 0 0 3px rgba(255,157,157,.07); }
-    .field-help { min-height: 18px; margin: 7px 0 0; color: var(--muted-deep); font-size: .67rem; line-height: 1.45; }
-    .field-help.error { color: var(--danger); }
-    .char-count { display: flex; justify-content: flex-end; min-height: 18px; margin-top: 6px; color: var(--muted-deep); font-size: .63rem; font-variant-numeric: tabular-nums; }
-    .char-count strong { color: var(--paper-soft); font-weight: 750; }
+    .music-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 23px; align-items: stretch; margin-top: 44px; }
+    .record-card { position: relative; min-height: 275px; overflow: hidden; padding: 26px; border: 1px solid var(--ink); border-radius: var(--radius-lg); background: var(--accent); box-shadow: 10px 10px 0 var(--ink); transform: rotate(1deg) translateZ(16px); }
+    .record-card::before { position: absolute; right: -48px; bottom: -64px; width: 230px; height: 230px; border: 1px solid rgba(29,29,27,.32); border-radius: 50%; content: ""; box-shadow: 0 0 0 18px rgba(29,29,27,.08), 0 0 0 36px rgba(29,29,27,.06), 0 0 0 54px rgba(29,29,27,.04); }
+    .record-card::after { position: absolute; right: 64px; bottom: 49px; width: 8px; height: 8px; border-radius: 50%; content: ""; background: var(--ink); }
+    .record-kicker { position: relative; z-index: 1; margin: 0; font-size: .59rem; font-weight: 950; letter-spacing: .15em; text-transform: uppercase; }
+    .record-card h3 { position: relative; z-index: 1; max-width: 230px; margin: 55px 0 0; font-size: 2.25rem; font-weight: 950; letter-spacing: -.09em; line-height: .9; }
+    .player-card { display: grid; align-content: center; padding: 27px; border: 1px solid var(--line-strong); border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-1); }
+    .track-number { color: var(--accent-deep); font-size: .62rem; font-weight: 950; letter-spacing: .14em; text-transform: uppercase; }
+    .player-card h3 { margin: 13px 0 4px; font-size: 1.3rem; font-weight: 950; letter-spacing: -.07em; }
+    .player-card p { margin: 0 0 20px; color: var(--muted); font-size: .72rem; }
+    audio { width: 100%; height: 38px; accent-color: var(--accent); }
+    .track-list { display: grid; gap: 8px; margin-top: 15px; }
+    .track-button { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); background: transparent; font-size: .7rem; text-align: left; transition: background 160ms var(--ease), border-color 160ms var(--ease), transform 160ms var(--ease); }
+    .track-button:hover, .track-button.is-playing { border-color: var(--accent); background: rgba(228,168,59,.14); transform: translateX(3px); }
+    .track-button span:last-child { color: var(--muted); font-size: .58rem; letter-spacing: .07em; text-transform: uppercase; }
 
-    .submit-panel { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px 0 0 82px; }
-    .submit-copy { display: grid; gap: 5px; }
-    .submit-copy small { color: var(--muted-deep); font-size: .66rem; }
-    .submit-copy strong { color: var(--paper-soft); font-size: .82rem; font-weight: 760; }
-    .submit-copy strong span { color: var(--violet-soft); }
-    .submit-button { min-width: 220px; min-height: 55px; border-radius: 12px; font-size: .76rem; }
-    .submit-button .arrow { font-size: 1.05rem; transition: transform 180ms var(--ease-out); }
-    .submit-button:hover .arrow { transform: translateX(4px); }
-    .legal-note { margin: 21px 0 0 82px; color: var(--muted-deep); font-size: .65rem; line-height: 1.55; }
+    .closing { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 50px; align-items: end; padding-bottom: 120px; }
+    .closing .section-title { max-width: 620px; }
+    .closing-copy { max-width: 510px; margin: 23px 0 0; color: var(--muted); font-size: .92rem; line-height: 1.75; }
+    .contact-card { padding: 21px; border: 1px solid var(--ink); border-radius: var(--radius-md); background: var(--white); box-shadow: 7px 7px 0 var(--accent); }
+    .contact-card p { margin: 0; color: var(--muted); font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; }
+    .contact-card a { display: inline-block; margin-top: 10px; font-size: .84rem; font-weight: 900; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+    .site-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 25px 0 34px; border-top: 1px solid var(--line); color: var(--muted); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
 
-    .toast { position: fixed; z-index: 60; right: 24px; bottom: 24px; display: flex; align-items: flex-start; gap: 12px; width: min(380px, calc(100% - 32px)); padding: 17px; border: 1px solid rgba(141,226,182,.33); border-radius: 15px; background: #1b2521; box-shadow: var(--shadow-md); opacity: 0; pointer-events: none; transform: translateY(16px); transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out); }
-    .toast.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-    .toast-icon { display: grid; place-items: center; flex: 0 0 auto; width: 26px; height: 26px; border-radius: 8px; color: #112018; background: var(--success); font-size: .8rem; font-weight: 900; }
-    .toast strong { display: block; margin-bottom: 3px; color: var(--paper); font-size: .78rem; }
-    .toast p { margin: 0; color: #b7c8be; font-size: .68rem; line-height: 1.45; }
-    .toast-close { margin-left: auto; padding: 0 2px; color: #b7c8be; background: transparent; font-size: 1rem; line-height: 1; }
-
-    .reveal { opacity: 0; transform: translateY(38px) translateZ(-34px) rotateX(2deg); transition: opacity 650ms var(--ease-out), transform 650ms var(--ease-space); }
-    .reveal.is-visible { opacity: 1; transform: translateY(0) translateZ(0) rotateX(0); }
-    footer { padding: 25px 0 34px; border-top: 1px solid var(--line); color: var(--muted-deep); font-size: .67rem; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-inner p { margin: 0; }
-    .footer-mark { color: var(--violet-soft); font-weight: 800; }
-
-    @media (hover: hover) and (pointer: fine) {
-      [data-tilt] { will-change: transform; }
-    }
-    @media (max-width: 1050px) {
+    @media (max-width: 940px) {
       .section-progress { right: 12px; }
-      .progress-step span { display: none; }
+      .hero { gap: 50px; }
+      .portrait-wrap { width: min(100%, 330px); }
+      .portrait-image { height: 410px; }
+      .bio-layout { grid-template-columns: 1fr; }
+      .quote-card { max-width: 340px; }
     }
-    @media (max-width: 820px) {
-      .page { width: min(100% - 32px, 680px); }
-      .header-note { font-size: .65rem; }
-      .hero { grid-template-columns: 1fr; gap: 60px; min-height: auto; padding: 74px 0 94px; }
-      .hero-card-wrap { width: min(100%, 410px); justify-self: center; }
-      .section-progress { position: sticky; top: 0; right: auto; display: flex; justify-content: space-between; width: 100%; padding: 9px 0; background: rgba(17,17,22,.84); transform: none; backdrop-filter: blur(13px); }
-      .progress-step { flex: 1; justify-content: center; }
-      .progress-step span { display: inline; }
-      .form-shell { margin-top: 18px; }
-      .form-shell::before { left: 19px; }
-      .form-section { padding-left: 58px; }
-      .submit-panel { padding-left: 58px; }
-      .legal-note { margin-left: 58px; }
-    }
-    @media (max-width: 620px) {
-      .page { width: min(100% - 28px, 520px); }
-      .site-header { min-height: 70px; }
-      .header-note { display: none; }
-      .hero { padding: 60px 0 78px; }
-      .hero h1 { font-size: clamp(2.45rem, 13vw, 4.5rem); overflow-wrap: anywhere; }
-      .hero-lede { font-size: .88rem; }
-      .hero-actions { margin-top: 27px; }
-      .button { width: 100%; }
-      .scroll-cue { margin-top: 42px; }
-      .hero-card { min-height: 328px; padding: 20px; }
-      .card-avatar { width: 137px; height: 137px; margin-top: 39px; }
-      .avatar-core { width: 92px; height: 92px; font-size: 1.4rem; }
-      .card-sticker { right: -11px; bottom: 25px; width: 70px; height: 70px; }
-      .section-progress { margin: 0 -14px; width: calc(100% + 28px); padding-left: 14px; padding-right: 14px; }
-      .progress-step { gap: 6px; font-size: .56rem; }
-      .form-shell::before { left: 16px; }
-      .form-section { padding: 51px 0 58px 45px; }
-      .section-index { top: 56px; width: 33px; height: 33px; border-radius: 10px; font-size: .58rem; }
-      .section-heading { margin-bottom: 25px; }
-      .section-heading h2 { font-size: 1.52rem; }
-      .section-heading p { font-size: .77rem; }
-      .profile-zone { grid-template-columns: 1fr; gap: 23px; padding: 16px; }
-      .avatar-stage { order: -1; width: 150px; height: 150px; }
-      .profile-copy h3 { font-size: .9rem; }
-      .profile-copy p { font-size: .72rem; }
-      .field-grid { grid-template-columns: 1fr; gap: 19px; }
-      .field-wide { grid-column: auto; }
-      .submit-panel { align-items: stretch; flex-direction: column; padding: 5px 0 0 45px; }
-      .submit-button { width: 100%; }
-      .legal-note { margin-left: 45px; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
+    @media (max-width: 720px) {
+      .page { width: min(100% - 28px, 560px); }
+      .header-status { display: none; }
+      .section-progress { top: auto; right: 14px; bottom: 18px; display: flex; padding: 8px 10px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(241,237,230,.9); transform: none; backdrop-filter: blur(10px); }
+      .progress-step { font-size: 0; }
+      .progress-step i { width: 6px; height: 6px; }
+      .hero { display: block; min-height: auto; padding: 83px 0 95px; }
+      .hero h1 { max-width: 500px; font-size: clamp(3.05rem, 16vw, 5.2rem); overflow-wrap: anywhere; }
+      .hero-lede { max-width: 460px; }
+      .hero-note { margin-top: 47px; }
+      .portrait-wrap { width: min(86%, 360px); margin: 76px auto 0; }
+      .portrait-image { height: 420px; }
+      .portrait-sticker { right: -17px; bottom: 70px; }
+      .section { display: block; padding: 80px 0 88px; }
+      .section-marker { display: flex; align-items: baseline; gap: 13px; padding: 0; }
+      .section-marker span { display: inline; margin: 0; }
+      .section-title { margin-top: 23px; font-size: clamp(2.6rem, 13vw, 4.3rem); }
+      .section-intro { font-size: .88rem; }
+      .bio-layout, .music-layout, .closing { grid-template-columns: 1fr; }
+      .bio-layout, .music-layout { margin-top: 34px; }
+      .media-meta { display: block; }
+      .media-meta p { max-width: none; margin-top: 8px; text-align: left; }
+      .record-card { min-height: 225px; }
+      .closing { gap: 32px; padding-bottom: 88px; }
+      .site-footer { align-items: flex-start; flex-direction: column; gap: 8px; padding-bottom: 25px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
-      .hero-card, [data-tilt], .hero-orbit { transform: none !important; }
+      .section[data-reveal] { opacity: 1; transform: none; }
+      .portrait-card, .quote-card, .record-card { transform: none; }
+      .portrait-orbit { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="progress-bar" aria-hidden="true"><span class="progress-fill" id="progressFill"></span></div>
+  <div class="progress-track" aria-hidden="true"><span class="progress-fill"></span></div>
   <div class="page">
     <header class="site-header">
-      <a class="brand" href="#intro" aria-label="Kembali ke awal form">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H5v14h4M15 5h4v14h-4M10.5 12h3"/></svg>
-        </span>
-        <span class="brand-copy"><span class="brand-name">ruang diri</span><span class="brand-meta">student introduction</span></span>
+      <a class="brand" href="#top" aria-label="Kembali ke awal halaman">
+        <span class="brand-mark" aria-hidden="true"><span>DR</span></span>
+        <span class="brand-copy"><strong class="brand-name">Destyan Ricky</strong><small class="brand-sub">Tentang aku / 2026</small></span>
       </a>
-      <span class="header-note">disusun dengan tenang</span>
+      <span class="header-status">disusun dengan tenang</span>
     </header>
 
-    <nav class="section-progress" aria-label="Progress form">
-      <a class="progress-step is-active" href="#intro" data-progress="intro"><span>Intro</span><i aria-hidden="true"></i></a>
-      <a class="progress-step" href="#foto" data-progress="foto"><span>Foto</span><i aria-hidden="true"></i></a>
-      <a class="progress-step" href="#data" data-progress="data"><span>Data dasar</span><i aria-hidden="true"></i></a>
-      <a class="progress-step" href="#cerita" data-progress="cerita"><span>Cerita</span><i aria-hidden="true"></i></a>
+    <nav class="section-progress" aria-label="Navigasi bagian halaman">
+      <a class="progress-step is-active" href="#intro" data-progress="intro"><span>Intro</span><i></i></a>
+      <a class="progress-step" href="#profil" data-progress="profil"><span>Profil</span><i></i></a>
+      <a class="progress-step" href="#video" data-progress="video"><span>Video</span><i></i></a>
+      <a class="progress-step" href="#musik" data-progress="musik"><span>Musik</span><i></i></a>
+      <a class="progress-step" href="#penutup" data-progress="penutup"><span>Akhir</span><i></i></a>
     </nav>
 
-    <main>
-      <section class="hero" id="intro" data-observe="intro">
-        <div class="hero-copy reveal is-visible">
-          <p class="eyebrow">form perkenalan mahasiswa / 2026</p>
-          <h1>Satu halaman kecil untuk memperkenalkan <span>dirimu.</span></h1>
-          <p class="hero-lede">Isi dengan hal-hal yang terasa paling kamu. Rapi untuk dibaca, personal untuk diingat—tanpa perlu menulis terlalu banyak.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#foto">Mulai mengisi <span aria-hidden="true">↘</span></a>
-            <a class="button button-secondary" href="#cerita">Lihat alurnya</a>
+    <main id="top">
+      <section class="hero" id="intro" data-section="intro">
+        <div class="hero-copy">
+          <p class="eyebrow">Catatan pribadi / 01</p>
+          <h1>Halo, aku <em>Destyan.</em></h1>
+          <p class="hero-lede">Mahasiswa Teknik Informatika yang percaya bahwa hal-hal kecil—sebuah ide, potongan musik, atau visual yang tepat—bisa menjadi awal dari sesuatu yang berarti.</p>
+          <div class="hero-links">
+            <a class="button button-primary" href="#profil">Kenali aku <span aria-hidden="true">↘</span></a>
+            <a class="button button-secondary" href="#musik">Dengarkan lagu</a>
           </div>
-          <p class="scroll-cue"><span aria-hidden="true"></span> scroll untuk lanjut</p>
+          <p class="hero-note">scroll untuk melihat lebih jauh</p>
         </div>
-
-        <div class="hero-card-wrap reveal is-visible" data-tilt data-tilt-strength="5">
-          <div class="hero-card">
-            <div class="card-topline"><span>identitas / <strong>01</strong></span><span>ruang diri</span></div>
-            <div class="card-avatar"><div class="avatar-core">RD</div></div>
-            <p class="card-label">Kenalan lebih dekat.</p>
-            <p class="card-caption">Bukan sekadar data akademik. Ada minat, cerita, dan hal kecil yang membuatmu berbeda.</p>
-            <div class="card-sticker">MAKE<br>YOUR<br>MARK</div>
+        <div class="portrait-wrap" data-tilt-wrap>
+          <div class="portrait-card" data-tilt-card>
+            <!-- FOTO LOKAL: letakkan/pertahankan file foto di root repository sebagai ./muka.jpg -->
+            <img class="portrait-image" src="./muka.jpg" alt="Foto profil Destyan Ricky Salim" loading="eager">
+            <div class="portrait-caption"><div><p class="name">Destyan Ricky Salim</p><p class="role">Teknik Informatika · Surabaya</p></div><span class="portrait-index">01—05</span></div>
           </div>
-          <div class="hero-orbit" aria-hidden="true"></div>
+          <div class="portrait-sticker" aria-hidden="true">make<br>your<br>mark</div>
+          <div class="portrait-orbit" aria-hidden="true"></div>
         </div>
       </section>
 
-      <form class="form-shell" id="introForm" novalidate>
-        <section class="form-section reveal" id="foto" data-section="foto" data-observe="foto">
-          <span class="section-index">01</span>
-          <div class="section-heading">
-            <p class="section-kicker">mulai dari visual</p>
-            <h2>Pasang wajahmu.</h2>
-            <p>Foto yang jelas membantu orang lain mengingatmu. Pilih gambar persegi dengan pencahayaan yang nyaman.</p>
-          </div>
-          <div class="profile-zone" data-tilt data-tilt-strength="3">
-            <div class="profile-copy">
-              <h3>Foto profil</h3>
-              <p>JPG atau PNG dengan ukuran maksimal 5 MB. Foto ini hanya dipakai sebagai preview di halaman ini.</p>
-              <div class="upload-row">
-                <label class="upload-button" for="photo">Pilih foto</label>
-                <span class="file-state" id="fileState">Belum ada foto dipilih</span>
-                <input class="sr-only" id="photo" name="photo" type="file" accept="image/png,image/jpeg">
+      <div class="content-shell">
+        <section class="section" id="profil" data-section="profil" data-reveal>
+          <div class="section-marker">02 <span>profil singkat</span></div>
+          <div class="section-body">
+            <h2 class="section-title">Sedikit tentang <em>aku.</em></h2>
+            <p class="section-intro">Bukan daftar pencapaian. Hanya beberapa potongan cerita yang membantu kamu mengenal orang di balik nama ini.</p>
+            <div class="bio-layout">
+              <div class="bio-copy">
+                <!-- BIO PLACEHOLDER: ganti paragraf di bawah ini dengan cerita personal Anda. -->
+                <p>Saya Destyan Ricky Salim, mahasiswa Teknik Informatika di Universitas 17 Agustus 1945 Surabaya. Saya menikmati proses mengubah ide sederhana menjadi pengalaman digital yang terasa jelas, fungsional, dan menyenangkan untuk digunakan.</p>
+                <p>Di luar kelas, saya biasanya menemukan inspirasi dari game, anime, manga, novel, dan musik lofi. Saya masih terus belajar—satu eksperimen, satu revisi, dan satu percakapan pada satu waktu.</p>
+              </div>
+              <div class="quote-card">
+                <blockquote>“Belajar pelan-pelan, membuat dengan sungguh-sungguh.”</blockquote>
+                <cite>catatan yang ingin kuingat</cite>
               </div>
             </div>
-            <div class="avatar-stage" aria-live="polite">
-              <div class="avatar-preview" id="avatarPreview" aria-label="Preview foto profil"><span id="avatarInitial">RD</span></div>
-              <span class="avatar-dot" aria-hidden="true"></span>
+            <dl class="fact-list" style="margin-top: 43px;">
+              <div class="fact"><dt>Studi</dt><dd>Teknik Informatika · Universitas 17 Agustus 1945 Surabaya</dd></div>
+              <div class="fact"><dt>NIM</dt><dd>1462500115</dd></div>
+              <div class="fact"><dt>Minat</dt><dd>Web, game, 3D, visual storytelling</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="section" id="video" data-section="video" data-reveal>
+          <div class="section-marker">03 <span>yang ditonton</span></div>
+          <div class="section-body">
+            <h2 class="section-title">Satu cerita <em>favorit.</em></h2>
+            <p class="section-intro">Ada cerita yang tinggal lebih lama dari durasinya. Video ini adalah salah satu yang sering saya kembali lihat ketika butuh jeda.</p>
+            <div class="media-card">
+              <div class="media-frame">
+                <span class="media-label">video favorit / putar manual</span>
+                <!-- VIDEO LOKAL: letakkan file video di root repository sebagai ./Tensura.mp4 -->
+                <!-- POSTER LOKAL: file ./muka1.jpg dipakai sebagai poster sebelum video diputar. -->
+                <video controls preload="metadata" poster="./muka1.jpg" playsinline>
+                  <source src="./Tensura.mp4" type="video/mp4">
+                  Browser Anda belum mendukung elemen video HTML5.
+                </video>
+              </div>
+              <div class="media-meta"><div><h3>Ruang untuk cerita</h3><p>Konten favorit yang mengingatkan saya pada dunia visual, karakter, dan perjalanan yang panjang.</p></div><span class="portrait-index">03 / 05</span></div>
             </div>
           </div>
         </section>
 
-        <section class="form-section reveal" id="data" data-section="data" data-observe="data">
-          <span class="section-index">02</span>
-          <div class="section-heading">
-            <p class="section-kicker">yang memudahkan</p>
-            <h2>Data dasar, secukupnya.</h2>
-            <p>Detail inti agar teman sekelas dan komunitas bisa mengenal konteks studimu tanpa terasa seperti mengisi biodata panjang.</p>
-          </div>
-          <div class="field-grid">
-            <div class="field field-wide">
-              <label class="field-label" for="fullName">Nama lengkap <small>wajib</small></label>
-              <input class="input" id="fullName" name="fullName" type="text" placeholder="Nama sesuai KTM" autocomplete="name" data-validate="name" required>
-              <p class="field-help" data-help-for="fullName">Nama yang ingin kamu gunakan di lingkungan kampus.</p>
-            </div>
-            <div class="field">
-              <label class="field-label" for="nim">NIM <small>wajib</small></label>
-              <input class="input" id="nim" name="nim" type="text" inputmode="numeric" placeholder="Contoh: 231041234" autocomplete="off" data-validate="nim" required>
-              <p class="field-help" data-help-for="nim">Angka saja, tanpa spasi atau tanda baca.</p>
-            </div>
-            <div class="field">
-              <label class="field-label" for="cohort">Angkatan <small>wajib</small></label>
-              <input class="input" id="cohort" name="cohort" type="text" inputmode="numeric" maxlength="4" placeholder="Contoh: 2024" autocomplete="off" data-validate="cohort" required>
-              <p class="field-help" data-help-for="cohort">Tahun kamu mulai menjadi mahasiswa.</p>
-            </div>
-            <div class="field field-wide">
-              <label class="field-label" for="major">Jurusan / program studi <small>wajib</small></label>
-              <input class="input" id="major" name="major" type="text" placeholder="Contoh: Teknik Informatika" autocomplete="organization-title" data-validate="major" required>
-              <p class="field-help" data-help-for="major">Sebutkan program studi yang sedang kamu jalani.</p>
+        <section class="section" id="musik" data-section="musik" data-reveal>
+          <div class="section-marker">04 <span>yang didengar</span></div>
+          <div class="section-body">
+            <h2 class="section-title">Nada untuk <em>berpikir.</em></h2>
+            <p class="section-intro">Musik lofi menemani banyak hal: menulis, menyusun ide, atau sekadar membiarkan sore berjalan tanpa terburu-buru.</p>
+            <div class="music-layout">
+              <div class="record-card"><p class="record-kicker">playlist / 01 track</p><h3>Soundtrack<br>untuk hari<br>yang tenang.</h3></div>
+              <div class="player-card">
+                <span class="track-number">Sedang diputar · <span id="track-position">01</span></span>
+                <h3 id="track-title">Lofi — ruang untuk fokus</h3>
+                <p id="track-meta">Satu lagu, satu suasana.</p>
+                <!-- AUDIO LOKAL: letakkan file audio di root repository sebagai ./Lofi.mp3 -->
+                <audio id="audio-player" controls preload="metadata">
+                  <source id="audio-source" src="./Lofi.mp3" type="audio/mpeg">
+                  Browser Anda belum mendukung elemen audio HTML5.
+                </audio>
+                <div class="track-list" aria-label="Daftar lagu">
+                  <button class="track-button is-playing" type="button" data-track="0"><span>01 · Lofi — ruang untuk fokus</span><span>lokal</span></button>
+                  <!-- Tambahkan track lokal kedua di sini bila tersedia; JS playlist siap dikembangkan. -->
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="form-section reveal" id="cerita" data-section="cerita" data-observe="cerita">
-          <span class="section-index">03</span>
-          <div class="section-heading">
-            <p class="section-kicker">sedikit warna</p>
-            <h2>Tambahkan ceritamu.</h2>
-            <p>Bagian ini opsional, tetapi biasanya justru membuat perkenalan terasa lebih hidup dan mudah dibuka sebagai percakapan.</p>
+        <section class="section closing" id="penutup" data-section="penutup" data-reveal>
+          <div class="section-body">
+            <div class="section-marker">05 <span>sampai jumpa</span></div>
+            <h2 class="section-title" style="margin-top:23px;">Terima kasih sudah <em>mampir.</em></h2>
+            <p class="closing-copy">Semoga halaman kecil ini memberi gambaran yang cukup tentang siapa saya, apa yang saya sukai, dan hal-hal yang sedang saya pelajari. Kalau ada cerita yang ingin dibagikan, saya senang untuk mendengarnya.</p>
           </div>
-          <div class="field-grid">
-            <div class="field field-wide">
-              <label class="field-label" for="interests">Hobi / minat <small>opsional</small></label>
-              <input class="input" id="interests" name="interests" type="text" placeholder="Contoh: fotografi analog, futsal, membaca esai">
-              <p class="field-help">Beberapa hal yang biasanya membuatmu betah berlama-lama.</p>
-            </div>
-            <div class="field field-wide">
-              <label class="field-label" for="motto">Motto atau quote favorit <small>opsional</small></label>
-              <textarea class="textarea" id="motto" name="motto" maxlength="140" placeholder="Kalimat yang sedang menemanimu akhir-akhir ini..."></textarea>
-              <div class="char-count" aria-live="polite"><span><strong id="mottoCount">0</strong> / 140</span></div>
-            </div>
-            <div class="field field-wide">
-              <label class="field-label" for="social">Media sosial <small>opsional</small></label>
-              <input class="input" id="social" name="social" type="text" placeholder="@username atau tautan profil" autocomplete="url" data-validate="social">
-              <p class="field-help" data-help-for="social">Bagikan hanya jika kamu nyaman ditemukan oleh teman kampus.</p>
-            </div>
-          </div>
+          <div class="contact-card"><p>temukan aku</p><a href="mailto:destyan@example.com">destyan@example.com</a></div>
         </section>
-
-        <div class="submit-panel reveal">
-          <div class="submit-copy"><small>progress pengisian</small><strong><span id="requiredCount">0</span> dari 4 data wajib terisi</strong></div>
-          <button class="button button-primary submit-button" id="submitButton" type="submit"><span>Simpan perkenalan saya</span><span class="arrow" aria-hidden="true">↗</span></button>
-        </div>
-        <p class="legal-note">Data tidak dikirim ke mana pun. Halaman ini berjalan sepenuhnya di perangkatmu dan dapat dibuka tanpa koneksi internet.</p>
-      </form>
+      </div>
     </main>
 
-    <footer>
-      <div class="footer-inner"><p><span class="footer-mark">ruang diri</span> / sebuah halaman untuk hadir dengan caramu sendiri.</p><p>offline by design · <span id="year">2026</span></p></div>
-    </footer>
-  </div>
-
-  <div class="toast" id="successToast" role="status" aria-live="polite">
-    <span class="toast-icon" aria-hidden="true">✓</span>
-    <div><strong>Perkenalan tersimpan.</strong><p>Semua data tetap berada di halaman ini. Kamu bisa mengeditnya kapan saja.</p></div>
-    <button class="toast-close" id="toastClose" type="button" aria-label="Tutup notifikasi">×</button>
+    <footer class="site-footer"><span>© 2026 Destyan Ricky Salim</span><span>dibuat dengan HTML · CSS · JS native</span></footer>
   </div>
 
   <script>
-    // Design contract: native-only behavior. No CDN, no external module, no network request.
+    /* Design contract: Analog Field Notes. Native modules only; no CDN, no library, no network request. */
     (() => {
       'use strict';
 
-      const form = document.querySelector('#introForm');
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-      const progressFill = document.querySelector('#progressFill');
-      const progressSteps = [...document.querySelectorAll('[data-progress]')];
-      const sections = [...document.querySelectorAll('[data-observe]')];
-      const requiredFields = [...document.querySelectorAll('[data-validate]')].filter((field) => field.dataset.validate !== 'social');
-      const allValidatedFields = [...document.querySelectorAll('[data-validate]')];
-      const requiredCount = document.querySelector('#requiredCount');
-      const submitButton = document.querySelector('#submitButton');
-      const successToast = document.querySelector('#successToast');
-      const toastClose = document.querySelector('#toastClose');
-      const photoInput = document.querySelector('#photo');
-      const avatarPreview = document.querySelector('#avatarPreview');
-      const fileState = document.querySelector('#fileState');
-      const motto = document.querySelector('#motto');
-      const mottoCount = document.querySelector('#mottoCount');
-      const year = document.querySelector('#year');
-      const currentYear = new Date().getFullYear();
-      let toastTimer;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const progressFill = document.querySelector('.progress-fill');
+      const sections = [...document.querySelectorAll('[data-section]')];
+      const steps = [...document.querySelectorAll('[data-progress]')];
+      const tiltWrap = document.querySelector('[data-tilt-wrap]');
+      const tiltCard = document.querySelector('[data-tilt-card]');
+      const audio = document.querySelector('#audio-player');
+      const audioSource = document.querySelector('#audio-source');
+      const trackTitle = document.querySelector('#track-title');
+      const trackMeta = document.querySelector('#track-meta');
+      const trackPosition = document.querySelector('#track-position');
+      const trackButtons = [...document.querySelectorAll('[data-track]')];
       let activeSection = 'intro';
-      let scrollFrame = null;
+      let rafId = 0;
+      let targetShift = 0;
 
-      if (year) year.textContent = String(currentYear);
+      const playlist = [
+        { title: 'Lofi — ruang untuk fokus', meta: 'Satu lagu, satu suasana.', src: './Lofi.mp3' }
+      ];
 
-      const validationMessages = {
-        name: { required: 'Nama lengkap perlu diisi.', invalid: 'Tulis minimal 3 karakter.' },
-        nim: { required: 'NIM perlu diisi.', invalid: 'Gunakan 8–15 angka tanpa spasi.' },
-        major: { required: 'Jurusan atau program studi perlu diisi.', invalid: 'Tulis nama program studimu.' },
-        cohort: { required: 'Angkatan perlu diisi.', invalid: `Gunakan tahun 2000–${currentYear + 1}.` },
-        social: { invalid: 'Masukkan @username atau tautan yang valid.' }
-      };
+      function updateProgress() {
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+        progressFill.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+        targetShift = Math.min(28, window.scrollY * .045);
+        if (!rafId) rafId = requestAnimationFrame(applyParallax);
+      }
 
-      function setState(field, state, message) {
-        const help = document.querySelector(`[data-help-for="${field.id}"]`);
-        field.classList.toggle('is-valid', state === 'valid');
-        field.classList.toggle('is-invalid', state === 'invalid');
-        if (help && message) {
-          help.textContent = message;
-          help.classList.toggle('error', state === 'invalid');
+      function applyParallax() {
+        document.documentElement.style.setProperty('--scroll-shift', `${targetShift}px`);
+        rafId = 0;
+      }
+
+      function setActiveSection(id) {
+        if (!id || id === activeSection) return;
+        activeSection = id;
+        steps.forEach((step) => step.classList.toggle('is-active', step.dataset.progress === id));
+      }
+
+      function revealSections() {
+        const revealTargets = document.querySelectorAll('[data-reveal]');
+        if (reducedMotion || !('IntersectionObserver' in window)) {
+          revealTargets.forEach((item) => item.classList.add('is-visible'));
+        } else {
+          const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: .16, rootMargin: '0px 0px -8% 0px' });
+          revealTargets.forEach((item) => revealObserver.observe(item));
         }
-      }
-
-      function validateField(field, announce = false) {
-        const type = field.dataset.validate;
-        const value = field.value.trim();
-        let valid = true;
-        let message = '';
-
-        if (type !== 'social' && value === '') {
-          valid = false;
-          message = validationMessages[type].required;
-        } else if (type === 'name' && value.length < 3) {
-          valid = false;
-          message = validationMessages.name.invalid;
-        } else if (type === 'nim' && !/^\d{8,15}$/.test(value)) {
-          valid = false;
-          message = validationMessages.nim.invalid;
-        } else if (type === 'major' && value.length < 2) {
-          valid = false;
-          message = validationMessages.major.invalid;
-        } else if (type === 'cohort' && (!/^\d{4}$/.test(value) || Number(value) < 2000 || Number(value) > currentYear + 1)) {
-          valid = false;
-          message = validationMessages.cohort.invalid;
-        } else if (type === 'social' && value && !(/^@[a-z0-9._-]{2,}$/i.test(value) || /^(https?:\/\/|www\.)\S+$/i.test(value))) {
-          valid = false;
-          message = validationMessages.social.invalid;
-        }
-
-        if (announce || value) setState(field, valid ? 'valid' : 'invalid', message);
-        return valid;
-      }
-
-      function updateRequiredProgress() {
-        const complete = requiredFields.filter((field) => validateField(field)).length;
-        requiredCount.textContent = String(complete);
-      }
-
-      allValidatedFields.forEach((field) => {
-        field.addEventListener('input', () => {
-          validateField(field);
-          updateRequiredProgress();
-        });
-        field.addEventListener('blur', () => validateField(field, true));
-      });
-
-      motto.addEventListener('input', () => {
-        mottoCount.textContent = String(motto.value.length);
-      });
-
-      photoInput.addEventListener('change', () => {
-        const file = photoInput.files && photoInput.files[0];
-        if (!file) return;
-        const accepted = ['image/jpeg', 'image/png'].includes(file.type) && file.size <= 5 * 1024 * 1024;
-        if (!accepted) {
-          fileState.textContent = 'File harus JPG/PNG maksimal 5 MB.';
-          fileState.style.color = 'var(--danger)';
-          photoInput.value = '';
-          return;
-        }
-
-        fileState.textContent = file.name;
-        fileState.style.color = '';
-        const reader = new FileReader();
-        reader.addEventListener('load', () => {
-          avatarPreview.innerHTML = `<img src="${reader.result}" alt="Preview foto profil yang dipilih">`;
-        });
-        reader.readAsDataURL(file);
-      });
-
-      function showToast() {
-        window.clearTimeout(toastTimer);
-        successToast.classList.add('is-visible');
-        toastTimer = window.setTimeout(() => successToast.classList.remove('is-visible'), 5500);
-      }
-      function hideToast() { successToast.classList.remove('is-visible'); }
-      toastClose.addEventListener('click', hideToast);
-
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const requiredValid = requiredFields.map((field) => validateField(field, true)).every(Boolean);
-        const socialValid = validateField(document.querySelector('#social'), true);
-        if (!requiredValid || !socialValid) {
-          const firstInvalid = allValidatedFields.find((field) => field.classList.contains('is-invalid'));
-          firstInvalid?.focus();
-          return;
-        }
-
-        submitButton.disabled = true;
-        submitButton.querySelector('span').textContent = 'Menyimpan...';
-        window.setTimeout(() => {
-          submitButton.disabled = false;
-          submitButton.querySelector('span').textContent = 'Simpan perkenalan saya';
-          showToast();
-        }, reducedMotion.matches ? 0 : 420);
-      });
-
-      function updateProgressBar() {
-        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-        const percent = scrollable > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollable * 100)) : 0;
-        progressFill.style.width = `${percent}%`;
-        document.documentElement.style.setProperty('--page-shift', `${Math.round(window.scrollY * -0.08)}px`);
-        scrollFrame = null;
-      }
-      window.addEventListener('scroll', () => {
-        if (scrollFrame === null) scrollFrame = window.requestAnimationFrame(updateProgressBar);
-      }, { passive: true });
-      updateProgressBar();
-
-      if ('IntersectionObserver' in window && !reducedMotion.matches) {
-        const revealObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add('is-visible');
-          });
-        }, { threshold: .14, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
         const sectionObserver = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              activeSection = entry.target.dataset.observe;
-              progressSteps.forEach((step) => step.classList.toggle('is-active', step.dataset.progress === activeSection));
-              document.querySelectorAll('[data-section]').forEach((section) => section.classList.toggle('is-active', section.dataset.section === activeSection));
-            }
-          });
+          entries.forEach((entry) => { if (entry.isIntersecting) setActiveSection(entry.target.dataset.section); });
         }, { threshold: 0, rootMargin: '-38% 0px -48% 0px' });
         sections.forEach((section) => sectionObserver.observe(section));
-      } else {
-        document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
       }
 
-      function addTilt(element) {
-        if (!finePointer.matches || reducedMotion.matches) return;
-        const strength = Number(element.dataset.tiltStrength || 4);
-        let frame;
-        element.addEventListener('pointermove', (event) => {
-          const bounds = element.getBoundingClientRect();
+      function setupTilt() {
+        if (reducedMotion || !tiltWrap || !tiltCard || !window.matchMedia('(pointer: fine)').matches) return;
+        tiltWrap.addEventListener('pointermove', (event) => {
+          const bounds = tiltWrap.getBoundingClientRect();
           const x = (event.clientX - bounds.left) / bounds.width - .5;
           const y = (event.clientY - bounds.top) / bounds.height - .5;
-          window.cancelAnimationFrame(frame);
-          frame = window.requestAnimationFrame(() => {
-            element.style.transform = `perspective(900px) rotateX(${(-y * strength).toFixed(2)}deg) rotateY(${(x * strength).toFixed(2)}deg) translateZ(4px)`;
-          });
+          tiltCard.style.transform = `rotateX(${y * -7}deg) rotateY(${x * 9}deg) rotateZ(2deg) translateZ(8px)`;
         });
-        element.addEventListener('pointerleave', () => {
-          window.cancelAnimationFrame(frame);
-          element.style.transform = '';
-        });
+        tiltWrap.addEventListener('pointerleave', () => { tiltCard.style.transform = 'rotate(4deg)'; });
       }
-      document.querySelectorAll('[data-tilt]').forEach(addTilt);
 
-      progressSteps.forEach((step) => {
-        step.addEventListener('click', (event) => {
-          const target = document.querySelector(`#${step.dataset.progress}`);
-          if (!target) return;
-          event.preventDefault();
-          target.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      function loadTrack(index, autoplay = false) {
+        const track = playlist[index];
+        if (!track) return;
+        audioSource.src = track.src;
+        audio.load();
+        trackTitle.textContent = track.title;
+        trackMeta.textContent = track.meta;
+        trackPosition.textContent = String(index + 1).padStart(2, '0');
+        trackButtons.forEach((button) => button.classList.toggle('is-playing', Number(button.dataset.track) === index));
+        if (autoplay) audio.play().catch(() => {});
+      }
+
+      function setupPlaylist() {
+        trackButtons.forEach((button) => {
+          button.addEventListener('click', () => loadTrack(Number(button.dataset.track), true));
         });
-      });
+        audio.addEventListener('ended', () => { trackButtons[0]?.focus({ preventScroll: true }); });
+      }
 
-      updateRequiredProgress();
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress, { passive: true });
+      revealSections();
+      setupTilt();
+      setupPlaylist();
+      updateProgress();
     })();
   </script>
 </body>
