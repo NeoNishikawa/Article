@@ -2,32 +2,32 @@
 <html lang="id">
 <head>
   <!--
-    Design contract: Analog Field Notes.
-    Personal, warm, spacious, and tactile: ink + paper neutrals with one saffron accent.
+    Design contract: Violet Index.
+    Personal, modern, spacious, and tactile: black + white + cool grey with one restrained violet accent.
     Offline contract: no CDN, no external import, no dependency. Media stays relative/local.
   -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Tentang Aku — cerita singkat, foto, video favorit, dan lagu favorit Destyan.">
-  <meta name="theme-color" content="#f1ede6">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231d1d1b'/%3E%3Cpath d='M17 18h30M17 31h21M17 44h30' stroke='%23e4a83b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#f5f4f8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23171620'/%3E%3Cpath d='M17 18h30M17 31h21M17 44h30' stroke='%237c5cff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
   <title>Tentang Aku — Destyan Ricky Salim</title>
   <style>
-    /* Design contract: Analog Field Notes — warm paper, ink, one saffron accent, generous rhythm. */
+    /* Design contract: Violet Index — monochrome surfaces, one intentional violet accent, modern spatial rhythm. */
     :root {
-      --paper: #f1ede6;
-      --paper-deep: #e5dfd5;
-      --paper-soft: #faf8f4;
-      --ink: #1d1d1b;
-      --ink-soft: #353431;
-      --muted: #78756e;
-      --line: rgba(29, 29, 27, .15);
-      --line-strong: rgba(29, 29, 27, .28);
-      --accent: #e4a83b;
-      --accent-deep: #af7119;
-      --white: #fffdf9;
-      --shadow-1: 0 10px 28px rgba(38, 31, 20, .08);
-      --shadow-2: 0 30px 70px rgba(38, 31, 20, .16);
+      --paper: #f5f4f8;
+      --paper-deep: #e7e6ed;
+      --paper-soft: #fbfbfd;
+      --ink: #171620;
+      --ink-soft: #393743;
+      --muted: #777582;
+      --line: rgba(34, 31, 48, .14);
+      --line-strong: rgba(34, 31, 48, .26);
+      --accent: #7c5cff;
+      --accent-deep: #5f43ca;
+      --white: #ffffff;
+      --shadow-1: 0 10px 28px rgba(35, 29, 64, .10);
+      --shadow-2: 0 30px 70px rgba(35, 29, 64, .17);
       --radius-lg: 24px;
       --radius-md: 14px;
       --ease: cubic-bezier(.23, 1, .32, 1);
@@ -43,8 +43,8 @@
       overflow-x: hidden;
       color: var(--ink);
       background:
-        radial-gradient(circle at 87% 4%, rgba(228, 168, 59, .16), transparent 25rem),
-        linear-gradient(90deg, rgba(29,29,27,.028) 1px, transparent 1px),
+        radial-gradient(circle at 87% 4%, rgba(124, 92, 255, .14), transparent 25rem),
+        linear-gradient(90deg, rgba(34,31,48,.028) 1px, transparent 1px),
         var(--paper);
       background-size: auto, 56px 56px, auto;
       font-family: Bank Gothic, "Bank Gothic Md BT", "Arial Narrow", "Segoe UI", Arial, sans-serif;
@@ -59,7 +59,7 @@
       pointer-events: none;
       content: "";
       opacity: .16;
-      background-image: radial-gradient(rgba(29,29,27,.24) .6px, transparent .6px);
+      background-image: radial-gradient(rgba(76, 66, 108, .22) .6px, transparent .6px);
       background-size: 5px 5px;
       mask-image: linear-gradient(to bottom, black, transparent 80%);
     }
@@ -82,13 +82,13 @@
     .brand-name { margin: 0; font-size: .85rem; font-weight: 900; letter-spacing: -.04em; }
     .brand-sub { margin: 0; color: var(--muted); font-size: .58rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
     .header-status { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; }
-    .header-status::before { width: 7px; height: 7px; border-radius: 50%; content: ""; background: var(--accent); box-shadow: 0 0 0 4px rgba(228,168,59,.14); }
+    .header-status::before { width: 7px; height: 7px; border-radius: 50%; content: ""; background: var(--accent); box-shadow: 0 0 0 4px rgba(124,92,255,.16); }
 
     .section-progress { position: fixed; z-index: 40; top: 50%; right: 22px; display: grid; gap: 9px; transform: translateY(-50%); }
     .progress-step { display: flex; align-items: center; justify-content: flex-end; gap: 8px; color: var(--muted); font-size: .58rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; opacity: .66; transition: color 180ms var(--ease), opacity 180ms var(--ease); }
     .progress-step i { display: block; width: 7px; height: 7px; border: 1px solid var(--muted); border-radius: 50%; background: transparent; transition: transform 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease); }
     .progress-step.is-active { color: var(--ink); opacity: 1; }
-    .progress-step.is-active i { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px rgba(228,168,59,.18); transform: scale(1.2); }
+    .progress-step.is-active i { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 4px rgba(124,92,255,.18); transform: scale(1.2); }
 
     .hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(270px, .7fr); align-items: center; gap: clamp(46px, 9vw, 130px); min-height: 690px; padding: 100px 0 110px; perspective: 1200px; }
     .hero-copy { position: relative; z-index: 1; }
@@ -170,48 +170,31 @@
     .media-meta h3 { margin: 0; font-size: 1.15rem; font-weight: 950; letter-spacing: -.06em; }
     .media-meta p { max-width: 330px; margin: 4px 0 0; color: var(--muted); font-size: .72rem; line-height: 1.55; text-align: right; }
 
-    /* Wallet card stack: each card is a tactile layer, selected cards pull forward. */
-    .favorite-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 58px 30px; margin-top: 46px; }
-    .favorite-group { min-width: 0; }
-    .favorite-group-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; min-height: 92px; padding-bottom: 17px; border-bottom: 1px solid var(--line-strong); }
-    .group-label { margin: 0 0 8px; color: var(--accent-deep); font-size: .59rem; font-weight: 950; letter-spacing: .15em; text-transform: uppercase; }
-    .favorite-group-heading h3 { max-width: 300px; margin: 0; font-size: clamp(1.45rem, 2.6vw, 2.45rem); font-weight: 950; letter-spacing: -.08em; line-height: .93; }
-    .group-number { flex: 0 0 auto; padding: 7px 9px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--muted); font-size: .56rem; letter-spacing: .08em; text-transform: uppercase; }
-    .favorite-group[data-group="game"] .group-number { border-color: var(--ink); background: var(--ink); color: var(--accent); }
-    .favorite-group-content { min-width: 0; }
-    .favorite-layout { display: block; margin-top: 0; }
-    .wallet-scene { position: relative; min-height: 410px; margin-top: 22px; perspective: 1200px; }
-    .wallet-pocket { position: absolute; right: 12%; bottom: 10px; left: 3%; height: 110px; border: 1px solid var(--ink); border-radius: 22px 22px 30px 30px; background: var(--ink); box-shadow: 12px 12px 0 var(--accent); transform: rotate(-4deg) translateZ(-20px); }
-    .wallet-pocket::before { position: absolute; top: 18px; right: 18px; left: 18px; height: 1px; content: ""; background: rgba(255,255,255,.22); }
-    .wallet-pocket::after { position: absolute; right: 20px; bottom: 22px; width: 42px; height: 7px; border-radius: 99px; content: ""; background: var(--accent); }
-    .card-stack { position: absolute; inset: 0 7% 38px 4%; transform-style: preserve-3d; }
-    .favorite-card { position: absolute; inset: 0; display: grid; grid-template-rows: 1fr auto; overflow: hidden; padding: 0; border: 1px solid var(--ink); border-radius: 21px; background: var(--white); box-shadow: 0 16px 34px rgba(38,31,20,.12); color: var(--ink); text-align: left; transform-origin: 50% 100%; transition: transform 360ms var(--ease), box-shadow 360ms var(--ease), filter 360ms var(--ease); will-change: transform; }
-    .favorite-card:nth-child(1) { z-index: 4; transform: translate3d(0,0,28px) rotate(-5deg); }
-    .favorite-card:nth-child(2) { z-index: 3; transform: translate3d(18px,12px,0) rotate(4deg); filter: saturate(.8); }
-    .favorite-card:nth-child(3) { z-index: 2; transform: translate3d(33px,24px,-18px) rotate(9deg); filter: saturate(.7); }
-    .favorite-card:nth-child(4) { z-index: 1; transform: translate3d(48px,36px,-35px) rotate(13deg); filter: saturate(.62); }
-    .favorite-card:nth-child(5) { z-index: 0; transform: translate3d(62px,47px,-48px) rotate(16deg); filter: saturate(.58); }
-    .favorite-card:nth-child(6) { z-index: -1; transform: translate3d(76px,58px,-61px) rotate(19deg); filter: saturate(.54); }
-    .favorite-card:hover, .favorite-card:focus-visible { box-shadow: 0 22px 38px rgba(38,31,20,.2); filter: saturate(1); }
-    .favorite-card:nth-child(1):hover, .favorite-card:nth-child(1):focus-visible { transform: translate3d(-8px,-20px,66px) rotate(-4deg); }
-    .favorite-card:nth-child(2):hover, .favorite-card:nth-child(2):focus-visible { transform: translate3d(10px,-10px,42px) rotate(3deg); }
-    .favorite-card:nth-child(3):hover, .favorite-card:nth-child(3):focus-visible { transform: translate3d(25px,0,24px) rotate(7deg); }
-    .favorite-card:nth-child(4):hover, .favorite-card:nth-child(4):focus-visible { transform: translate3d(40px,10px,8px) rotate(11deg); }
-    .favorite-card:nth-child(5):hover, .favorite-card:nth-child(5):focus-visible { transform: translate3d(54px,20px,0) rotate(14deg); }
-    .favorite-card:nth-child(6):hover, .favorite-card:nth-child(6):focus-visible { transform: translate3d(68px,30px,-8px) rotate(17deg); }
-    .favorite-card.is-selected { z-index: 8; box-shadow: 0 28px 48px rgba(38,31,20,.24); filter: saturate(1); transform: translate3d(-16px,-52px,88px) rotate(-1deg) !important; }
-    .favorite-card img { width: 100%; height: 100%; min-height: 290px; object-fit: cover; }
-    .favorite-card-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px 16px; background: var(--white); font-size: .68rem; font-weight: 950; letter-spacing: .04em; }
-    .favorite-card-label small { color: var(--accent-deep); font-size: .56rem; letter-spacing: .12em; text-transform: uppercase; }
-    .favorite-detail { position: relative; margin-top: 15px; padding: 24px; border: 1px solid var(--ink); border-radius: var(--radius-lg); background: var(--ink); box-shadow: 8px 8px 0 var(--accent); color: var(--paper-soft); transform: translateZ(20px); }
-    .favorite-detail::before { position: absolute; top: 18px; right: 21px; width: 8px; height: 8px; border-radius: 50%; content: ""; background: var(--accent); box-shadow: 14px 0 0 rgba(228,168,59,.45), 28px 0 0 rgba(228,168,59,.2); }
+    /* Favorite grid: six tactile cards, three Game cards above three Anime cards. */
+    .favorite-grid { display: grid; gap: 18px; margin-top: 46px; }
+    .favorite-grid-label { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line-strong); }
+    .favorite-grid-label p { margin: 0; color: var(--accent-deep); font-size: .59rem; font-weight: 950; letter-spacing: .15em; text-transform: uppercase; }
+    .favorite-grid-label span { color: var(--muted); font-size: .56rem; letter-spacing: .08em; text-transform: uppercase; }
+    .favorite-grid-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+    .favorite-grid-row + .favorite-grid-label { margin-top: 24px; }
+    .favorite-card { position: relative; display: grid; grid-template-rows: 1fr auto; min-width: 0; min-height: 280px; overflow: hidden; padding: 0; border: 1px solid var(--line-strong); border-radius: 18px; background: var(--white); box-shadow: 7px 7px 0 var(--paper-deep); color: var(--ink); text-align: left; transform-style: preserve-3d; transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease); will-change: transform; }
+    .favorite-card::after { position: absolute; top: 12px; right: 12px; width: 8px; height: 8px; border-radius: 50%; content: ""; background: var(--accent); opacity: 0; transform: translateZ(22px) scale(.7); transition: opacity 200ms var(--ease), transform 200ms var(--ease); }
+    .favorite-card:hover, .favorite-card:focus-visible { border-color: var(--accent); box-shadow: 0 18px 30px rgba(44,33,87,.16), 7px 7px 0 var(--accent); transform: translateY(-9px) translateZ(16px) rotate(-.7deg); }
+    .favorite-card.is-selected { border-color: var(--accent); box-shadow: 0 18px 30px rgba(44,33,87,.18), 7px 7px 0 var(--accent); transform: translateY(-7px) translateZ(14px); }
+    .favorite-card:hover::after, .favorite-card:focus-visible::after, .favorite-card.is-selected::after { opacity: 1; transform: translateZ(22px) scale(1); }
+    .favorite-card img { width: 100%; height: 100%; min-height: 0; object-fit: cover; transition: transform 500ms var(--ease), filter 300ms var(--ease); }
+    .favorite-card:hover img, .favorite-card:focus-visible img, .favorite-card.is-selected img { filter: saturate(1.06); transform: scale(1.045); }
+    .favorite-card-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 15px 15px; background: var(--white); font-size: .68rem; font-weight: 950; letter-spacing: .02em; }
+    .favorite-card-label small { flex: 0 0 auto; color: var(--accent-deep); font-size: .55rem; letter-spacing: .1em; text-transform: uppercase; }
+    .favorite-detail { position: relative; display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 28px; margin-top: 27px; padding: 27px; border: 1px solid var(--ink); border-radius: var(--radius-lg); background: var(--ink); box-shadow: 8px 8px 0 var(--accent); color: var(--paper-soft); transform: translateZ(20px); }
+    .favorite-detail::before { position: absolute; top: 18px; right: 21px; width: 8px; height: 8px; border-radius: 50%; content: ""; background: var(--accent); box-shadow: 14px 0 0 rgba(124,92,255,.45), 28px 0 0 rgba(124,92,255,.2); }
     .favorite-detail-kicker { margin: 0; color: var(--accent); font-size: .59rem; font-weight: 950; letter-spacing: .15em; text-transform: uppercase; }
     .favorite-detail h3 { max-width: 390px; margin: 18px 0 8px; font-size: clamp(1.7rem, 3.6vw, 3.2rem); font-weight: 950; letter-spacing: -.09em; line-height: .9; }
-    .favorite-detail-copy { max-width: 440px; margin: 0; color: #c5c0b6; font-size: .82rem; line-height: 1.7; }
+    .favorite-detail-copy { max-width: 440px; margin: 0; color: #d1ceda; font-size: .82rem; line-height: 1.7; }
     .favorite-detail-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-    .favorite-detail-meta span { padding: 7px 9px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; color: #ded9d0; font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
-    .favorite-video { width: 100%; margin-top: 23px; border: 1px solid rgba(255,255,255,.22); border-radius: 13px; background: #090909; }
-    .favorite-hint { margin: 17px 0 0; color: #a9a49a; font-size: .61rem; letter-spacing: .1em; text-transform: uppercase; }
+    .favorite-detail-meta span { padding: 7px 9px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; color: #e5e3eb; font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
+    .favorite-video { width: 100%; margin-top: 0; border: 1px solid rgba(255,255,255,.22); border-radius: 13px; background: #09080d; }
+    .favorite-hint { margin: 17px 0 0; color: #aaa7b6; font-size: .61rem; letter-spacing: .1em; text-transform: uppercase; }
 
     .closing { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 50px; align-items: end; padding-bottom: 120px; }
     .closing .section-title { max-width: 620px; }
@@ -248,18 +231,14 @@
       .section-marker span { display: inline; margin: 0; }
       .section-title { margin-top: 23px; font-size: clamp(2.6rem, 13vw, 4.3rem); }
       .section-intro { font-size: .88rem; }
-      .bio-layout, .favorite-groups, .closing { grid-template-columns: 1fr; }
-      .bio-layout, .favorite-groups { margin-top: 34px; }
-      .favorite-group + .favorite-group { margin-top: 56px; }
-      .favorite-group-heading { min-height: 76px; }
-      .wallet-scene { min-height: 360px; }
-      .card-stack { inset: 0 3% 32px 0; }
-      .favorite-card img { min-height: 245px; }
-      .favorite-card.is-selected { transform: translate3d(-5px,-30px,65px) rotate(-1deg) !important; }
-      .favorite-detail { margin-top: 13px; }
+      .bio-layout, .favorite-detail, .closing { grid-template-columns: 1fr; }
+      .bio-layout, .favorite-grid { margin-top: 34px; }
+      .favorite-grid-row { grid-template-columns: 1fr; gap: 14px; }
+      .favorite-grid-row + .favorite-grid-label { margin-top: 20px; }
+      .favorite-card { min-height: 270px; }
+      .favorite-card.is-selected { transform: translateY(-4px) translateZ(0); }
+      .favorite-detail { gap: 22px; margin-top: 22px; }
       .favorite-video { max-height: 310px; }
-      .media-meta { display: block; }
-      .media-meta p { max-width: none; margin-top: 8px; text-align: left; }
       .closing { gap: 32px; padding-bottom: 88px; }
       .site-footer { align-items: flex-start; flex-direction: column; gap: 8px; padding-bottom: 25px; }
     }
@@ -356,76 +335,55 @@
           <div class="section-body">
             <h2 class="section-title">Favoritku: dua sisi dari <em>cerita.</em></h2>
             <p class="section-intro">Seperti mengambil kartu dari dompet: pilih satu kartu di kategori Anime atau Game, tarik ke depan, lalu lihat cerita yang tersimpan di baliknya.</p>
-            <div class="favorite-groups">
-              <article class="favorite-group" data-group="anime" data-favorite-group aria-labelledby="anime-favorites-title">
-                <div class="favorite-group-heading"><div><p class="group-label">01 / anime</p><h3 id="anime-favorites-title">Dunia yang ingin kutinggali.</h3></div><span class="group-number">03 kartu</span></div>
-                <div class="favorite-group-content">
-                  <div class="wallet-scene" aria-label="Kartu favorit anime">
-                    <div class="card-stack">
-                      <button class="favorite-card is-selected" type="button" data-favorite-card data-title="That Time I Got Reincarnated as a Slime" data-kind="Anime favorit" data-year="Tensura" data-copy="Dunia fantasi, karakter yang tumbuh bersama, dan perjalanan yang selalu terasa lebih besar dari perkiraan." data-poster="./assets/favorites/anime/tensura.png" data-video="./assets/favorites/anime/tensura.mp4">
-                        <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/tensura.png -->
-                        <img src="./assets/favorites/anime/tensura.png" alt="Artwork Tensura" loading="lazy"><span class="favorite-card-label"><span>Tensura</span><small>Anime / 01</small></span>
-                      </button>
-                      <button class="favorite-card" type="button" data-favorite-card data-title="The Beginning After the End" data-kind="Anime favorit" data-year="7 Prince" data-copy="Visual yang lembut, musik yang hidup, dan karakter yang membuat saya betah kembali menonton." data-poster="./assets/favorites/anime/7-prince.png" data-video="./assets/favorites/anime/7-prince.mp4">
-                        <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/7-prince.png -->
-                        <img src="./assets/favorites/anime/7-prince.png" alt="Artwork 7 Prince" loading="lazy"><span class="favorite-card-label"><span>7 Prince</span><small>Anime / 02</small></span>
-                      </button>
-                      <button class="favorite-card" type="button" data-favorite-card data-title="Hunter × Hunter" data-kind="Anime favorit" data-year="Hunter × Hunter" data-copy="Petualangan dengan aturan dunia yang kuat, kejutan yang sabar, dan karakter yang sulit dilupakan." data-poster="./assets/favorites/anime/hunter-x-hunter.jpg" data-video="./assets/favorites/anime/hunter-x-hunter.mp4">
-                        <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/hunter-x-hunter.jpg -->
-                        <img src="./assets/favorites/anime/hunter-x-hunter.jpg" alt="Artwork Hunter X Hunter" loading="lazy"><span class="favorite-card-label"><span>Hunter × Hunter</span><small>Anime / 03</small></span>
-                      </button>
-                    </div>
-                    <div class="wallet-pocket" aria-hidden="true"></div>
-                  </div>
-                  <div class="favorite-detail" aria-live="polite">
-                    <p class="favorite-detail-kicker" data-detail-kind>Anime favorit · Tensura</p>
-                    <h3 data-detail-title>That Time I Got Reincarnated as a Slime</h3>
-                    <p class="favorite-detail-copy" data-detail-copy>Dunia fantasi, karakter yang tumbuh bersama, dan perjalanan yang selalu terasa lebih besar dari perkiraan.</p>
-                    <div class="favorite-detail-meta"><span data-detail-year>Tensura</span><span>putar manual</span><span>lokal</span></div>
-                    <!-- VIDEO FAVORIT LOKAL ANIME: player berganti mengikuti kartu yang dipilih; tidak autoplay. -->
-                    <video class="favorite-video" data-detail-video controls preload="metadata" poster="./assets/favorites/anime/tensura.png" playsinline>
-                      <source data-detail-video-source src="./assets/favorites/anime/tensura.mp4" type="video/mp4">
-                      Browser Anda belum mendukung elemen video HTML5.
-                    </video>
-                    <p class="favorite-hint">klik kartu untuk mengambilnya dari dompet</p>
-                  </div>
-                </div>
-              </article>
+            <div class="favorite-grid">
+              <div class="favorite-grid-label"><p>01 / game favorit</p><span>baris atas · 03 kartu</span></div>
+              <div class="favorite-grid-row" data-grid-category="game" aria-label="Game favorit">
+                <button class="favorite-card is-selected" type="button" data-favorite-card data-title="Mecha Break" data-kind="Game favorit" data-year="Mecha action" data-copy="Mesin besar, ruang terbuka, dan energi trailer yang membuat saya ingin langsung mencoba dunianya." data-poster="./assets/favorites/game/mecha-break.jpg" data-video="./assets/favorites/game/mecha-break.mp4">
+                  <!-- POSTER LOKAL GAME: frame dibuat dari video lokal, ./assets/favorites/game/mecha-break.jpg -->
+                  <img src="./assets/favorites/game/mecha-break.jpg" alt="Poster Mecha Break" loading="lazy"><span class="favorite-card-label"><span>Mecha Break</span><small>Game / 01</small></span>
+                </button>
+                <button class="favorite-card" type="button" data-favorite-card data-title="Punishing: Gray Raven" data-kind="Game favorit" data-year="Action RPG" data-copy="Kombinasi visual yang tajam, gerak yang cepat, dan atmosfer futuristik yang selalu menarik perhatian." data-poster="./assets/favorites/game/punishing-gray-raven.jpg" data-video="./assets/favorites/game/punishing-gray-raven.mp4">
+                  <!-- POSTER LOKAL GAME: frame dibuat dari video lokal, ./assets/favorites/game/punishing-gray-raven.jpg -->
+                  <img src="./assets/favorites/game/punishing-gray-raven.jpg" alt="Poster Punishing Gray Raven" loading="lazy"><span class="favorite-card-label"><span>Punishing: Gray Raven</span><small>Game / 02</small></span>
+                </button>
+                <button class="favorite-card" type="button" data-favorite-card data-title="Wuthering Waves" data-kind="Game favorit" data-year="Open world" data-copy="Eksplorasi, atmosfer, dan dunia yang memberi ruang untuk berhenti sebentar sebelum melanjutkan perjalanan." data-poster="./assets/favorites/game/wuthering-waves.jpg" data-video="./assets/favorites/game/wuthering-waves.mp4">
+                  <!-- POSTER LOKAL GAME: frame dibuat dari video lokal, ./assets/favorites/game/wuthering-waves.jpg -->
+                  <img src="./assets/favorites/game/wuthering-waves.jpg" alt="Poster Wuthering Waves" loading="lazy"><span class="favorite-card-label"><span>Wuthering Waves</span><small>Game / 03</small></span>
+                </button>
+              </div>
 
-              <article class="favorite-group" data-group="game" data-favorite-group aria-labelledby="game-favorites-title">
-                <div class="favorite-group-heading"><div><p class="group-label">02 / game</p><h3 id="game-favorites-title">Tempat untuk terus bergerak.</h3></div><span class="group-number">03 kartu</span></div>
-                <div class="favorite-group-content">
-                  <div class="wallet-scene" aria-label="Kartu favorit game">
-                    <div class="card-stack">
-                      <button class="favorite-card is-selected" type="button" data-favorite-card data-title="Mecha Break" data-kind="Game favorit" data-year="Mecha action" data-copy="Mesin besar, ruang terbuka, dan energi trailer yang membuat saya ingin langsung mencoba dunianya." data-poster="./assets/favorites/game/mecha-break.jpg" data-video="./assets/favorites/game/mecha-break.mp4">
-                        <!-- POSTER LOKAL GAME: frame dibuat dari video lokal, ./assets/favorites/game/mecha-break.jpg -->
-                        <img src="./assets/favorites/game/mecha-break.jpg" alt="Poster Mecha Break" loading="lazy"><span class="favorite-card-label"><span>Mecha Break</span><small>Game / 01</small></span>
-                      </button>
-                      <button class="favorite-card" type="button" data-favorite-card data-title="Punishing: Gray Raven" data-kind="Game favorit" data-year="Action RPG" data-copy="Kombinasi visual yang tajam, gerak yang cepat, dan atmosfer futuristik yang selalu menarik perhatian." data-poster="./assets/favorites/game/punishing-gray-raven.jpg" data-video="./assets/favorites/game/punishing-gray-raven.mp4">
-                        <!-- POSTER LOKAL GAME: frame dibuat dari video lokal, ./assets/favorites/game/punishing-gray-raven.jpg -->
-                        <img src="./assets/favorites/game/punishing-gray-raven.jpg" alt="Poster Punishing Gray Raven" loading="lazy"><span class="favorite-card-label"><span>Punishing: Gray Raven</span><small>Game / 02</small></span>
-                      </button>
-                      <button class="favorite-card" type="button" data-favorite-card data-title="Wuthering Waves" data-kind="Game favorit" data-year="Open world" data-copy="Eksplorasi, atmosfer, dan dunia yang memberi ruang untuk berhenti sebentar sebelum melanjutkan perjalanan." data-poster="./assets/favorites/game/wuthering-waves.jpg" data-video="./assets/favorites/game/wuthering-waves.mp4">
-                        <!-- POSTER LOKAL GAME: frame dibuat dari video lokal, ./assets/favorites/game/wuthering-waves.jpg -->
-                        <img src="./assets/favorites/game/wuthering-waves.jpg" alt="Poster Wuthering Waves" loading="lazy"><span class="favorite-card-label"><span>Wuthering Waves</span><small>Game / 03</small></span>
-                      </button>
-                    </div>
-                    <div class="wallet-pocket" aria-hidden="true"></div>
-                  </div>
-                  <div class="favorite-detail" aria-live="polite">
-                    <p class="favorite-detail-kicker" data-detail-kind>Game favorit · Mecha action</p>
-                    <h3 data-detail-title>Mecha Break</h3>
-                    <p class="favorite-detail-copy" data-detail-copy>Mesin besar, ruang terbuka, dan energi trailer yang membuat saya ingin langsung mencoba dunianya.</p>
-                    <div class="favorite-detail-meta"><span data-detail-year>Mecha action</span><span>putar manual</span><span>lokal</span></div>
-                    <!-- VIDEO FAVORIT LOKAL GAME: player berganti mengikuti kartu yang dipilih; tidak autoplay. -->
-                    <video class="favorite-video" data-detail-video controls preload="metadata" poster="./assets/favorites/game/mecha-break.jpg" playsinline>
-                      <source data-detail-video-source src="./assets/favorites/game/mecha-break.mp4" type="video/mp4">
-                      Browser Anda belum mendukung elemen video HTML5.
-                    </video>
-                    <p class="favorite-hint">klik kartu untuk mengambilnya dari dompet</p>
-                  </div>
+              <div class="favorite-grid-label"><p>02 / anime favorit</p><span>baris bawah · 03 kartu</span></div>
+              <div class="favorite-grid-row" data-grid-category="anime" aria-label="Anime favorit">
+                <button class="favorite-card" type="button" data-favorite-card data-title="That Time I Got Reincarnated as a Slime" data-kind="Anime favorit" data-year="Tensura" data-copy="Dunia fantasi, karakter yang tumbuh bersama, dan perjalanan yang selalu terasa lebih besar dari perkiraan." data-poster="./assets/favorites/anime/tensura.png" data-video="./assets/favorites/anime/tensura.mp4">
+                  <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/tensura.png -->
+                  <img src="./assets/favorites/anime/tensura.png" alt="Artwork Tensura" loading="lazy"><span class="favorite-card-label"><span>Tensura</span><small>Anime / 01</small></span>
+                </button>
+                <button class="favorite-card" type="button" data-favorite-card data-title="The Beginning After the End" data-kind="Anime favorit" data-year="7 Prince" data-copy="Visual yang lembut, musik yang hidup, dan karakter yang membuat saya betah kembali menonton." data-poster="./assets/favorites/anime/7-prince.png" data-video="./assets/favorites/anime/7-prince.mp4">
+                  <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/7-prince.png -->
+                  <img src="./assets/favorites/anime/7-prince.png" alt="Artwork 7 Prince" loading="lazy"><span class="favorite-card-label"><span>7 Prince</span><small>Anime / 02</small></span>
+                </button>
+                <button class="favorite-card" type="button" data-favorite-card data-title="Hunter × Hunter" data-kind="Anime favorit" data-year="Hunter × Hunter" data-copy="Petualangan dengan aturan dunia yang kuat, kejutan yang sabar, dan karakter yang sulit dilupakan." data-poster="./assets/favorites/anime/hunter-x-hunter.jpg" data-video="./assets/favorites/anime/hunter-x-hunter.mp4">
+                  <!-- POSTER LOKAL ANIME: asset dari aset.zip, ./assets/favorites/anime/hunter-x-hunter.jpg -->
+                  <img src="./assets/favorites/anime/hunter-x-hunter.jpg" alt="Artwork Hunter X Hunter" loading="lazy"><span class="favorite-card-label"><span>Hunter × Hunter</span><small>Anime / 03</small></span>
+                </button>
+              </div>
+
+              <div class="favorite-detail" aria-live="polite">
+                <div class="favorite-detail-copy-wrap">
+                  <p class="favorite-detail-kicker" data-detail-kind>Game favorit · Mecha action</p>
+                  <h3 data-detail-title>Mecha Break</h3>
+                  <p class="favorite-detail-copy" data-detail-copy>Mesin besar, ruang terbuka, dan energi trailer yang membuat saya ingin langsung mencoba dunianya.</p>
+                  <div class="favorite-detail-meta"><span data-detail-year>Mecha action</span><span>putar manual</span><span>lokal</span></div>
                 </div>
-              </article>
+                <!-- VIDEO FAVORIT LOKAL: berganti mengikuti kartu yang dipilih; tidak autoplay. -->
+                <div>
+                  <video class="favorite-video" data-detail-video controls preload="metadata" poster="./assets/favorites/game/mecha-break.jpg" playsinline>
+                    <source data-detail-video-source src="./assets/favorites/game/mecha-break.mp4" type="video/mp4">
+                    Browser Anda belum mendukung elemen video HTML5.
+                  </video>
+                  <p class="favorite-hint">pilih kartu untuk melihat ceritanya</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -445,7 +403,7 @@
   </div>
 
   <script>
-    /* Design contract: Analog Field Notes. Native modules only; no CDN, no library, no network request. */
+    /* Design contract: Violet Index. Native modules only; no CDN, no library, no network request. */
     (() => {
       'use strict';
 
@@ -455,7 +413,13 @@
       const steps = [...document.querySelectorAll('[data-progress]')];
       const tiltWrap = document.querySelector('[data-tilt-wrap]');
       const tiltCard = document.querySelector('[data-tilt-card]');
-      const favoriteGroups = [...document.querySelectorAll('[data-favorite-group]')];
+      const favoriteCards = [...document.querySelectorAll('[data-favorite-card]')];
+      const detailKind = document.querySelector('[data-detail-kind]');
+      const detailTitle = document.querySelector('[data-detail-title]');
+      const detailCopy = document.querySelector('[data-detail-copy]');
+      const detailYear = document.querySelector('[data-detail-year]');
+      const detailVideo = document.querySelector('[data-detail-video]');
+      const detailVideoSource = document.querySelector('[data-detail-video-source]');
       const heroPlayer = document.querySelector('#hero-player');
       const heroAudio = document.querySelector('#hero-audio');
       const playerState = document.querySelector('#player-state');
@@ -515,23 +479,17 @@
         tiltWrap.addEventListener('pointerleave', () => { tiltCard.style.transform = 'rotate(4deg)'; });
       }
 
-      function selectFavorite(card, group) {
-        const cards = [...group.querySelectorAll('[data-favorite-card]')];
-        const kind = group.querySelector('[data-detail-kind]');
-        const title = group.querySelector('[data-detail-title]');
-        const copy = group.querySelector('[data-detail-copy]');
-        const year = group.querySelector('[data-detail-year]');
-        const video = group.querySelector('[data-detail-video]');
-        const videoSource = group.querySelector('[data-detail-video-source]');
-        cards.forEach((item) => item.classList.toggle('is-selected', item === card));
-        kind.textContent = `${card.dataset.kind} · ${card.dataset.year}`;
-        title.textContent = card.dataset.title;
-        copy.textContent = card.dataset.copy;
-        year.textContent = card.dataset.year;
-        video.pause();
-        video.poster = card.dataset.poster;
-        videoSource.src = card.dataset.video;
-        video.load();
+      function selectFavorite(card) {
+        if (!card || !detailKind || !detailTitle || !detailCopy || !detailYear || !detailVideo || !detailVideoSource) return;
+        favoriteCards.forEach((item) => item.classList.toggle('is-selected', item === card));
+        detailKind.textContent = `${card.dataset.kind} · ${card.dataset.year}`;
+        detailTitle.textContent = card.dataset.title;
+        detailCopy.textContent = card.dataset.copy;
+        detailYear.textContent = card.dataset.year;
+        detailVideo.pause();
+        detailVideo.poster = card.dataset.poster;
+        detailVideoSource.src = card.dataset.video;
+        detailVideo.load();
       }
 
       function setupHeroPlayer() {
@@ -551,19 +509,17 @@
       }
 
       function setupFavorites() {
-        favoriteGroups.forEach((group) => {
-          const cards = [...group.querySelectorAll('[data-favorite-card]')];
-          cards.forEach((card) => {
-            card.addEventListener('click', () => selectFavorite(card, group));
-            card.addEventListener('keydown', (event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                selectFavorite(card, group);
-              }
-            });
+        favoriteCards.forEach((card) => {
+          card.addEventListener('click', () => selectFavorite(card));
+          card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              selectFavorite(card);
+            }
           });
-          if (cards[0]) selectFavorite(cards[0], group);
         });
+        const initialCard = favoriteCards.find((card) => card.classList.contains('is-selected')) || favoriteCards[0];
+        if (initialCard) selectFavorite(initialCard);
       }
 
       window.addEventListener('scroll', updateProgress, { passive: true });
